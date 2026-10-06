@@ -1,6 +1,6 @@
 # MangoFS-BD – results
 
-_232 result records from `results/kaggle`._
+_415 result records from `results/kaggle`._
 
 
 ## Table 0 – The unified MangoFS-BD benchmark (images / capture groups)
@@ -36,21 +36,21 @@ _232 result records from `results/kaggle`._
 
 Mean over 3 cultivar folds × 600 episodes, ± 95% CI. Bold = best per backbone and shot. † = significantly different from *ours* (Wilcoxon, Holm, p<0.05).
 
-| Method | Conv-4 1-shot | Conv-4 5-shot | Conv-4 10-shot | ResNet-18 1-shot | ResNet-18 5-shot | ResNet-18 10-shot | ResNet-50 1-shot | ResNet-50 5-shot | ResNet-50 10-shot | DenseNet-121 1-shot | DenseNet-121 5-shot | DenseNet-121 10-shot | DINOv2 ViT-S/14 1-shot | DINOv2 ViT-S/14 5-shot | DINOv2 ViT-S/14 10-shot |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| ImageNet features (no training) | – | – | – | 63.33 ± 0.47 † | 75.33 ± 0.42 † | 79.05 ± 0.38 † | 63.50 ± 0.47 † | 75.00 ± 0.43 † | 78.26 ± 0.39 † | 62.11 ± 0.46 † | 74.74 ± 0.42 † | 78.50 ± 0.38 | 63.86 ± 0.46 | 79.43 ± 0.38 † | **83.93 ± 0.32 †** |
-| Fine-tuned CE (cosine) | **65.80 ± 0.50 †** | **75.51 ± 0.42 †** | **78.55 ± 0.39 †** | **67.59 ± 0.47 †** | **77.63 ± 0.39 †** | **80.27 ± 0.37 †** | 62.70 ± 0.47 | 74.84 ± 0.39 † | 78.26 ± 0.36 † | 67.94 ± 0.45 † | 78.06 ± 0.39 † | 81.05 ± 0.37 † | 67.87 ± 0.48 † | 77.85 ± 0.41 † | 81.09 ± 0.36 † |
-| ProtoNet | 64.09 ± 0.49 † | 74.19 ± 0.44 † | 77.32 ± 0.40 † | 66.09 ± 0.47 † | 76.62 ± 0.40 † | 79.49 ± 0.38 † | **67.82 ± 0.48 †** | **78.27 ± 0.39 †** | **81.51 ± 0.36 †** | **68.99 ± 0.47 †** | **79.14 ± 0.39 †** | **81.79 ± 0.36 †** | **69.61 ± 0.47 †** | **79.82 ± 0.39 †** | 82.84 ± 0.36 † |
-| ProtoNet + MLP head | 62.53 ± 0.50 † | 72.24 ± 0.44 † | 74.91 ± 0.41 † | 63.78 ± 0.50 † | 74.34 ± 0.42 † | 77.48 ± 0.40 † | 63.59 ± 0.48 † | 74.58 ± 0.40 † | 77.71 ± 0.37 † | 64.81 ± 0.48 | 75.17 ± 0.40 † | 78.01 ± 0.38 † | 65.56 ± 0.49 † | 75.25 ± 0.41 † | 78.21 ± 0.38 † |
-| ProtoNet + KAN head | 63.25 ± 0.50 † | 72.87 ± 0.44 † | 75.56 ± 0.40 † | 63.39 ± 0.49 † | 73.70 ± 0.42 † | 76.68 ± 0.40 † | 62.09 ± 0.47 † | 72.68 ± 0.42 † | 76.15 ± 0.38 † | 64.79 ± 0.48 | 75.47 ± 0.40 | 78.32 ± 0.38 † | 65.18 ± 0.50 † | 75.04 ± 0.42 | 77.92 ± 0.39 |
-| + prototype margin | 62.71 ± 0.50 † | 72.11 ± 0.45 † | 74.84 ± 0.41 † | 63.20 ± 0.49 † | 73.58 ± 0.43 † | 76.68 ± 0.38 † | 61.31 ± 0.48 † | 72.25 ± 0.43 † | 75.54 ± 0.39 † | 64.42 ± 0.48 | 74.86 ± 0.41 † | 77.69 ± 0.38 † | 63.83 ± 0.48 † | 74.20 ± 0.42 † | 77.20 ± 0.39 † |
-| + KAN metric | 62.14 ± 0.51 † | 70.66 ± 0.46 | 72.66 ± 0.43 † | 63.73 ± 0.50 † | 73.98 ± 0.43 † | 76.88 ± 0.41 † | 63.44 ± 0.50 † | 73.93 ± 0.42 | 77.01 ± 0.39 | 65.45 ± 0.47 † | 76.22 ± 0.39 † | 79.08 ± 0.37 † | 64.16 ± 0.48 † | 74.37 ± 0.41 † | 77.47 ± 0.38 † |
-| KAN metric + margin (ours) | 61.64 ± 0.51 | 70.82 ± 0.45 | 73.25 ± 0.42 | 62.07 ± 0.49 | 72.87 ± 0.42 | 75.80 ± 0.38 | 62.66 ± 0.49 | 73.88 ± 0.41 | 77.11 ± 0.39 | 64.31 ± 0.48 | 75.63 ± 0.40 | 78.63 ± 0.37 | 64.47 ± 0.49 | 74.85 ± 0.42 | 77.82 ± 0.36 |
-| ArcFace | – | – | – | 63.64 ± 0.50 † | 73.88 ± 0.43 † | 76.50 ± 0.39 † | – | – | – | 60.69 ± 0.49 † | 71.10 ± 0.42 † | 74.59 ± 0.39 † | – | – | – |
-| SupCon | – | – | – | 59.65 ± 0.50 † | 69.67 ± 0.44 † | 72.13 ± 0.40 † | – | – | – | 54.71 ± 0.49 † | 65.29 ± 0.44 † | 68.83 ± 0.40 † | – | – | – |
-| Triplet (batch-hard) | – | – | – | 60.33 ± 0.50 † | 70.78 ± 0.43 † | 73.87 ± 0.40 † | – | – | – | 62.08 ± 0.48 † | 72.63 ± 0.42 † | 75.43 ± 0.38 † | – | – | – |
-| ProtoNet + triplet | – | – | – | 61.47 ± 0.49 † | 72.02 ± 0.43 † | 74.93 ± 0.39 † | – | – | – | 63.05 ± 0.49 † | 73.59 ± 0.42 † | 76.60 ± 0.38 † | – | – | – |
-| Ours + KAN head | – | – | – | 62.16 ± 0.49 | 72.60 ± 0.42 | 75.55 ± 0.39 † | – | – | – | 63.22 ± 0.47 † | 74.43 ± 0.40 † | 77.39 ± 0.37 † | – | – | – |
+| Method | Conv-4 1-shot | Conv-4 5-shot | Conv-4 10-shot | ResNet-18 1-shot | ResNet-18 5-shot | ResNet-18 10-shot | ResNet-50 1-shot | ResNet-50 5-shot | ResNet-50 10-shot | DenseNet-121 1-shot | DenseNet-121 5-shot | DenseNet-121 10-shot | DINOv2 ViT-S/14 1-shot | DINOv2 ViT-S/14 5-shot | DINOv2 ViT-S/14 10-shot | DINOv2 ViT-B/14 1-shot | DINOv2 ViT-B/14 5-shot | DINOv2 ViT-B/14 10-shot |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| ImageNet features (no training) | – | – | – | 63.33 ± 0.47 † | 75.33 ± 0.42 † | 79.05 ± 0.38 † | 63.50 ± 0.47 † | 75.00 ± 0.43 † | 78.26 ± 0.39 † | 62.11 ± 0.46 † | 74.74 ± 0.42 † | 78.50 ± 0.38 | 63.86 ± 0.46 | 79.43 ± 0.38 † | **83.93 ± 0.32 †** | 64.36 ± 0.45 | 79.06 ± 0.39 | 83.22 ± 0.34 |
+| Fine-tuned CE (cosine) | **65.80 ± 0.50 †** | **75.51 ± 0.42 †** | **78.55 ± 0.39 †** | **67.59 ± 0.47 †** | **77.63 ± 0.39 †** | **80.27 ± 0.37 †** | 62.70 ± 0.47 | 74.84 ± 0.39 † | 78.26 ± 0.36 † | 67.94 ± 0.45 † | 78.06 ± 0.39 † | 81.05 ± 0.37 † | 67.87 ± 0.48 † | 77.85 ± 0.41 † | 81.09 ± 0.36 † | 66.64 ± 0.49 | 76.70 ± 0.42 | 79.71 ± 0.38 |
+| ProtoNet | 64.09 ± 0.49 † | 74.19 ± 0.44 † | 77.32 ± 0.40 † | 66.09 ± 0.47 † | 76.62 ± 0.40 † | 79.49 ± 0.38 † | **67.82 ± 0.48 †** | **78.27 ± 0.39 †** | **81.51 ± 0.36 †** | **68.99 ± 0.47 †** | **79.14 ± 0.39 †** | **81.79 ± 0.36 †** | **69.61 ± 0.47 †** | **79.82 ± 0.39 †** | 82.84 ± 0.36 † | **70.20 ± 0.47** | **80.47 ± 0.39** | **83.61 ± 0.35** |
+| ProtoNet + MLP head | 62.53 ± 0.50 † | 72.24 ± 0.44 † | 74.91 ± 0.41 † | 63.78 ± 0.50 † | 74.34 ± 0.42 † | 77.48 ± 0.40 † | 63.59 ± 0.48 † | 74.58 ± 0.40 † | 77.71 ± 0.37 † | 64.81 ± 0.48 | 75.17 ± 0.40 † | 78.01 ± 0.38 † | 65.56 ± 0.49 † | 75.25 ± 0.41 † | 78.21 ± 0.38 † | 65.36 ± 0.50 | 74.75 ± 0.44 | 77.82 ± 0.39 |
+| ProtoNet + KAN head | 63.25 ± 0.50 † | 72.87 ± 0.44 † | 75.56 ± 0.40 † | 63.39 ± 0.49 † | 73.70 ± 0.42 † | 76.68 ± 0.40 † | 62.09 ± 0.47 † | 72.68 ± 0.42 † | 76.15 ± 0.38 † | 64.79 ± 0.48 | 75.47 ± 0.40 | 78.32 ± 0.38 † | 65.18 ± 0.50 † | 75.04 ± 0.42 | 77.92 ± 0.39 | – | – | – |
+| + prototype margin | 62.71 ± 0.50 † | 72.11 ± 0.45 † | 74.84 ± 0.41 † | 63.20 ± 0.49 † | 73.58 ± 0.43 † | 76.68 ± 0.38 † | 61.31 ± 0.48 † | 72.25 ± 0.43 † | 75.54 ± 0.39 † | 64.42 ± 0.48 | 74.86 ± 0.41 † | 77.69 ± 0.38 † | 63.83 ± 0.48 † | 74.20 ± 0.42 † | 77.20 ± 0.39 † | – | – | – |
+| + KAN metric | 62.14 ± 0.51 † | 70.66 ± 0.46 | 72.66 ± 0.43 † | 63.73 ± 0.50 † | 73.98 ± 0.43 † | 76.88 ± 0.41 † | 63.44 ± 0.50 † | 73.93 ± 0.42 | 77.01 ± 0.39 | 65.45 ± 0.47 † | 76.22 ± 0.39 † | 79.08 ± 0.37 † | 64.16 ± 0.48 † | 74.37 ± 0.41 † | 77.47 ± 0.38 † | – | – | – |
+| KAN metric + margin (ours) | 61.64 ± 0.51 | 70.82 ± 0.45 | 73.25 ± 0.42 | 62.07 ± 0.49 | 72.87 ± 0.42 | 75.80 ± 0.38 | 62.66 ± 0.49 | 73.88 ± 0.41 | 77.11 ± 0.39 | 64.31 ± 0.48 | 75.63 ± 0.40 | 78.63 ± 0.37 | 64.47 ± 0.49 | 74.85 ± 0.42 | 77.82 ± 0.36 | – | – | – |
+| ArcFace | – | – | – | 63.64 ± 0.50 † | 73.88 ± 0.43 † | 76.50 ± 0.39 † | – | – | – | 60.69 ± 0.49 † | 71.10 ± 0.42 † | 74.59 ± 0.39 † | – | – | – | – | – | – |
+| SupCon | – | – | – | 59.65 ± 0.50 † | 69.67 ± 0.44 † | 72.13 ± 0.40 † | – | – | – | 54.71 ± 0.49 † | 65.29 ± 0.44 † | 68.83 ± 0.40 † | – | – | – | – | – | – |
+| Triplet (batch-hard) | – | – | – | 60.33 ± 0.50 † | 70.78 ± 0.43 † | 73.87 ± 0.40 † | – | – | – | 62.08 ± 0.48 † | 72.63 ± 0.42 † | 75.43 ± 0.38 † | – | – | – | – | – | – |
+| ProtoNet + triplet | – | – | – | 61.47 ± 0.49 † | 72.02 ± 0.43 † | 74.93 ± 0.39 † | – | – | – | 63.05 ± 0.49 † | 73.59 ± 0.42 † | 76.60 ± 0.38 † | – | – | – | – | – | – |
+| Ours + KAN head | – | – | – | 62.16 ± 0.49 | 72.60 ± 0.42 | 75.55 ± 0.39 † | – | – | – | 63.22 ± 0.47 † | 74.43 ± 0.40 † | 77.39 ± 0.37 † | – | – | – | – | – | – |
 
 ## Table 2 – Inference rule on the same embeddings (5-shot, %)
 
@@ -107,6 +107,10 @@ Mean over 3 cultivar folds × 600 episodes, ± 95% CI. Bold = best per backbone 
 | DINOv2 ViT-S/14 | + prototype margin | 74.20 ± 0.42 | 82.73 ± 0.37 | 82.79 ± 0.36 | 75.87 ± 0.41 |
 | DINOv2 ViT-S/14 | + KAN metric | 74.37 ± 0.41 | 80.69 ± 0.38 | 80.83 ± 0.37 | 75.92 ± 0.41 |
 | DINOv2 ViT-S/14 | KAN metric + margin (ours) | 74.85 ± 0.42 | 82.37 ± 0.36 | 82.44 ± 0.36 | 76.91 ± 0.41 |
+| DINOv2 ViT-B/14 | ImageNet features (no training) | 79.06 ± 0.39 | 79.06 ± 0.39 | 79.60 ± 0.38 | 82.17 ± 0.37 |
+| DINOv2 ViT-B/14 | Fine-tuned CE (cosine) | 76.70 ± 0.42 | 83.99 ± 0.37 | 84.12 ± 0.37 | 79.24 ± 0.40 |
+| DINOv2 ViT-B/14 | ProtoNet | 80.47 ± 0.39 | 80.47 ± 0.39 | 80.55 ± 0.39 | 82.75 ± 0.37 |
+| DINOv2 ViT-B/14 | ProtoNet + MLP head | 74.75 ± 0.44 | 82.76 ± 0.37 | 82.78 ± 0.37 | 76.86 ± 0.42 |
 
 ## Table 4 – Leave-one-dataset-out, 5-way 5-shot accuracy (%)
 
@@ -130,6 +134,7 @@ Train on two datasets, test on every cultivar of the third. *seen* = cultivar al
 | DINOv2 ViT-S/14 | Fine-tuned CE (cosine) | 82.71 ± 0.61 | 87.23 ± 0.44 | 77.85 ± 0.53 | 63.06 ± 0.73 | 57.63 ± 0.71 | 68.38 ± 0.57 | 76.51 ± 0.73 | 86.68 ± 0.46 | 61.19 ± 0.64 |
 | DINOv2 ViT-S/14 | ProtoNet + MLP head | 78.69 ± 0.69 | 85.51 ± 0.52 | 70.33 ± 0.58 | 62.07 ± 0.78 | 53.98 ± 0.70 | 66.00 ± 0.61 | 75.74 ± 0.72 | 80.06 ± 0.53 | 65.54 ± 0.68 |
 | DINOv2 ViT-S/14 | KAN metric + margin (ours) | 78.46 ± 0.66 | 85.20 ± 0.48 | 71.16 ± 0.57 | 62.34 ± 0.76 | 55.20 ± 0.71 | 64.15 ± 0.56 | 72.47 ± 0.76 | 80.57 ± 0.57 | 58.60 ± 0.68 |
+| DINOv2 ViT-B/14 | ImageNet features (no training) | 85.64 ± 0.60 | 88.01 ± 0.48 | 84.34 ± 0.50 | 73.27 ± 0.77 | 66.37 ± 0.73 | 79.56 ± 0.53 | 73.34 ± 0.71 | 76.71 ± 0.63 | 66.69 ± 0.68 |
 
 ## Table 5 – Cross-domain episodes (support from dataset A, query from dataset B), %
 
@@ -186,60 +191,68 @@ Averaged over all ordered dataset pairs and folds where ≥2 novel cultivars are
 | DINOv2 ViT-S/14 | + prototype margin | 50.02 | 51.93 |
 | DINOv2 ViT-S/14 | + KAN metric | 54.17 | 56.02 |
 | DINOv2 ViT-S/14 | KAN metric + margin (ours) | 53.46 | 55.92 |
+| DINOv2 ViT-B/14 | ImageNet features (no training) | 59.44 | 64.50 |
+| DINOv2 ViT-B/14 | Fine-tuned CE (cosine) | 53.48 | 53.85 |
+| DINOv2 ViT-B/14 | ProtoNet | 59.71 | 60.71 |
+| DINOv2 ViT-B/14 | ProtoNet + MLP head | 53.35 | 54.95 |
 
 ## Table 6 – Open-set episodes: AUROC (%) for rejecting an unseen cultivar
 
 | Backbone | Method | 1-shot AUROC | 5-shot AUROC | 5-shot closed acc |
 |---|---|---|---|---|
-| Conv-4 | Fine-tuned CE (cosine) | 75.28 ± 1.15 | 80.40 ± 1.01 | 75.56 |
-| Conv-4 | ProtoNet | 73.09 ± 1.26 | 78.62 ± 1.09 | 73.72 |
-| Conv-4 | ProtoNet + MLP head | 72.48 ± 1.23 | 77.87 ± 1.06 | 71.75 |
+| Conv-4 | Fine-tuned CE (cosine) | 70.34 ± 0.63 | 76.30 ± 0.57 | 70.72 |
+| Conv-4 | ProtoNet | 70.56 ± 0.69 | 76.82 ± 0.59 | 70.80 |
+| Conv-4 | ProtoNet + MLP head | 69.42 ± 0.65 | 75.19 ± 0.58 | 69.41 |
 | Conv-4 | ProtoNet + KAN head | 72.82 ± 1.21 | 78.70 ± 1.01 | 72.64 |
 | Conv-4 | + prototype margin | 72.79 ± 1.20 | 78.47 ± 1.03 | 71.78 |
 | Conv-4 | + KAN metric | 72.20 ± 1.21 | 76.81 ± 1.02 | 70.26 |
-| Conv-4 | KAN metric + margin (ours) | 71.43 ± 1.23 | 76.33 ± 1.06 | 70.40 |
-| ResNet-18 | ImageNet features (no training) | 70.19 ± 1.20 | 75.49 ± 1.10 | 75.24 |
-| ResNet-18 | Fine-tuned CE (cosine) | 74.15 ± 1.17 | 79.88 ± 1.02 | 77.94 |
-| ResNet-18 | ProtoNet | 74.22 ± 1.11 | 80.63 ± 1.00 | 76.45 |
-| ResNet-18 | ProtoNet + MLP head | 72.04 ± 1.24 | 77.19 ± 1.18 | 74.63 |
+| Conv-4 | KAN metric + margin (ours) | 68.83 ± 0.66 | 74.53 ± 0.58 | 68.75 |
+| ResNet-18 | ImageNet features (no training) | 68.56 ± 0.66 | 74.79 ± 0.60 | 72.07 |
+| ResNet-18 | Fine-tuned CE (cosine) | 73.24 ± 0.62 | 80.46 ± 0.52 | 77.01 |
+| ResNet-18 | ProtoNet | 72.10 ± 0.62 | 78.98 ± 0.56 | 73.79 |
+| ResNet-18 | ProtoNet + MLP head | 72.87 ± 0.63 | 79.55 ± 0.57 | 75.99 |
 | ResNet-18 | ProtoNet + KAN head | 72.43 ± 1.16 | 78.31 ± 1.08 | 73.78 |
 | ResNet-18 | + prototype margin | 73.00 ± 1.10 | 79.22 ± 0.98 | 73.69 |
 | ResNet-18 | + KAN metric | 72.29 ± 1.23 | 77.31 ± 1.18 | 74.06 |
-| ResNet-18 | KAN metric + margin (ours) | 71.39 ± 1.24 | 76.74 ± 1.20 | 72.99 |
+| ResNet-18 | KAN metric + margin (ours) | 72.42 ± 0.65 | 79.11 ± 0.59 | 75.28 |
 | ResNet-18 | ArcFace | 72.28 ± 1.19 | 77.92 ± 1.01 | 73.93 |
 | ResNet-18 | SupCon | 70.26 ± 1.22 | 74.79 ± 1.09 | 69.62 |
 | ResNet-18 | Triplet (batch-hard) | 70.41 ± 1.19 | 76.62 ± 1.02 | 71.02 |
 | ResNet-18 | ProtoNet + triplet | 70.83 ± 1.17 | 76.82 ± 1.01 | 71.99 |
 | ResNet-18 | Ours + KAN head | 71.58 ± 1.15 | 77.02 ± 1.12 | 72.62 |
-| ResNet-50 | ImageNet features (no training) | 68.99 ± 1.20 | 75.29 ± 1.10 | 75.19 |
-| ResNet-50 | Fine-tuned CE (cosine) | 71.20 ± 1.12 | 77.19 ± 1.05 | 75.25 |
-| ResNet-50 | ProtoNet | 74.52 ± 1.10 | 81.01 ± 0.96 | 78.62 |
-| ResNet-50 | ProtoNet + MLP head | 72.00 ± 1.15 | 78.39 ± 1.03 | 74.81 |
+| ResNet-50 | ImageNet features (no training) | 68.00 ± 0.68 | 74.95 ± 0.60 | 72.56 |
+| ResNet-50 | Fine-tuned CE (cosine) | 73.04 ± 0.64 | 80.00 ± 0.57 | 76.93 |
+| ResNet-50 | ProtoNet | 73.37 ± 0.62 | 80.34 ± 0.53 | 76.47 |
+| ResNet-50 | ProtoNet + MLP head | 73.88 ± 0.64 | 80.72 ± 0.55 | 76.98 |
 | ResNet-50 | ProtoNet + KAN head | 70.94 ± 1.12 | 76.24 ± 1.03 | 73.20 |
 | ResNet-50 | + prototype margin | 71.00 ± 1.12 | 76.09 ± 1.06 | 72.47 |
 | ResNet-50 | + KAN metric | 72.05 ± 1.18 | 77.14 ± 1.07 | 74.24 |
-| ResNet-50 | KAN metric + margin (ours) | 71.72 ± 1.17 | 77.07 ± 1.07 | 74.04 |
-| DenseNet-121 | ImageNet features (no training) | 68.28 ± 1.18 | 75.03 ± 1.02 | 74.81 |
-| DenseNet-121 | Fine-tuned CE (cosine) | 74.21 ± 1.12 | 79.66 ± 1.04 | 78.14 |
-| DenseNet-121 | ProtoNet | 74.68 ± 1.16 | 80.89 ± 1.07 | 79.39 |
-| DenseNet-121 | ProtoNet + MLP head | 72.43 ± 1.15 | 77.64 ± 1.11 | 75.47 |
+| ResNet-50 | KAN metric + margin (ours) | 74.12 ± 0.63 | 80.77 ± 0.54 | 77.24 |
+| DenseNet-121 | ImageNet features (no training) | 67.44 ± 0.66 | 74.66 ± 0.57 | 72.09 |
+| DenseNet-121 | Fine-tuned CE (cosine) | 74.32 ± 0.62 | 81.03 ± 0.55 | 78.72 |
+| DenseNet-121 | ProtoNet | 73.23 ± 0.65 | 80.12 ± 0.58 | 77.21 |
+| DenseNet-121 | ProtoNet + MLP head | 73.47 ± 0.63 | 80.09 ± 0.57 | 77.51 |
 | DenseNet-121 | ProtoNet + KAN head | 72.66 ± 1.12 | 78.35 ± 1.06 | 75.87 |
 | DenseNet-121 | + prototype margin | 72.25 ± 1.10 | 78.22 ± 1.02 | 75.02 |
 | DenseNet-121 | + KAN metric | 71.84 ± 1.20 | 77.57 ± 1.11 | 76.19 |
-| DenseNet-121 | KAN metric + margin (ours) | 72.24 ± 1.13 | 78.16 ± 1.05 | 75.65 |
+| DenseNet-121 | KAN metric + margin (ours) | 73.47 ± 0.62 | 80.45 ± 0.55 | 77.75 |
 | DenseNet-121 | ArcFace | 70.17 ± 1.16 | 75.57 ± 1.01 | 71.65 |
 | DenseNet-121 | SupCon | 67.39 ± 1.19 | 70.92 ± 1.10 | 65.58 |
 | DenseNet-121 | Triplet (batch-hard) | 71.30 ± 1.15 | 77.38 ± 1.01 | 72.73 |
 | DenseNet-121 | ProtoNet + triplet | 72.45 ± 1.07 | 78.65 ± 0.95 | 74.08 |
 | DenseNet-121 | Ours + KAN head | 71.06 ± 1.16 | 76.14 ± 1.12 | 74.56 |
-| DINOv2 ViT-S/14 | ImageNet features (no training) | 69.80 ± 0.99 | 77.75 ± 0.81 | 79.83 |
-| DINOv2 ViT-S/14 | Fine-tuned CE (cosine) | 75.92 ± 1.06 | 81.96 ± 0.94 | 78.36 |
-| DINOv2 ViT-S/14 | ProtoNet | 76.88 ± 1.09 | 82.16 ± 0.99 | 80.03 |
-| DINOv2 ViT-S/14 | ProtoNet + MLP head | 74.72 ± 1.10 | 79.77 ± 1.00 | 75.69 |
+| DINOv2 ViT-S/14 | ImageNet features (no training) | 69.00 ± 0.56 | 77.11 ± 0.46 | 76.12 |
+| DINOv2 ViT-S/14 | Fine-tuned CE (cosine) | 75.58 ± 0.60 | 82.50 ± 0.53 | 78.77 |
+| DINOv2 ViT-S/14 | ProtoNet | 74.91 ± 0.61 | 81.06 ± 0.55 | 77.28 |
+| DINOv2 ViT-S/14 | ProtoNet + MLP head | 74.74 ± 0.61 | 81.33 ± 0.54 | 77.38 |
 | DINOv2 ViT-S/14 | ProtoNet + KAN head | 74.07 ± 1.21 | 79.16 ± 1.10 | 75.03 |
 | DINOv2 ViT-S/14 | + prototype margin | 73.57 ± 1.05 | 79.13 ± 0.99 | 73.72 |
 | DINOv2 ViT-S/14 | + KAN metric | 72.33 ± 1.17 | 76.99 ± 1.10 | 74.26 |
-| DINOv2 ViT-S/14 | KAN metric + margin (ours) | 73.49 ± 1.16 | 77.98 ± 1.04 | 74.59 |
+| DINOv2 ViT-S/14 | KAN metric + margin (ours) | 74.62 ± 0.62 | 80.97 ± 0.54 | 77.28 |
+| DINOv2 ViT-B/14 | ImageNet features (no training) | 70.45 ± 0.53 | 78.33 ± 0.45 | 75.96 |
+| DINOv2 ViT-B/14 | Fine-tuned CE (cosine) | 76.82 ± 0.58 | 83.16 ± 0.50 | 79.39 |
+| DINOv2 ViT-B/14 | ProtoNet | 76.74 ± 0.57 | 83.16 ± 0.49 | 78.50 |
+| DINOv2 ViT-B/14 | ProtoNet + MLP head | 76.02 ± 0.61 | 81.90 ± 0.55 | 77.93 |
 
 ## Table 7 – Sensitivity and ablations (ResNet-18 unless stated), 1/5-shot %
 
@@ -255,9 +268,17 @@ Averaged over all ordered dataset pairs and folds where ≥2 novel cultivars are
 | Triplet, batch_hard mining | 60.33 ± 0.50 | 70.78 ± 0.43 |
 | Triplet, distance_weighted mining | 61.20 ± 0.50 | 71.69 ± 0.43 |
 | ResNet-18, ProtoNet + MLP head, fruit crop | 63.78 ± 0.50 | 74.34 ± 0.42 |
+| ResNet-18, ProtoNet + MLP head, full frame (background kept) | 62.23 ± 0.49 | 72.53 ± 0.42 |
 | ResNet-18, KAN metric + margin (ours), fruit crop | 62.07 ± 0.49 | 72.87 ± 0.42 |
+| ResNet-18, KAN metric + margin (ours), full frame (background kept) | 61.62 ± 0.50 | 72.36 ± 0.42 |
 | DenseNet-121, ProtoNet + MLP head, fruit crop | 64.81 ± 0.48 | 75.17 ± 0.40 |
+| DenseNet-121, ProtoNet + MLP head, full frame (background kept) | 65.04 ± 0.47 | 75.22 ± 0.40 |
 | DenseNet-121, KAN metric + margin (ours), fruit crop | 64.31 ± 0.48 | 75.63 ± 0.40 |
+| DenseNet-121, KAN metric + margin (ours), full frame (background kept) | 66.17 ± 0.48 | 75.81 ± 0.40 |
+| ResNet-18, ProtoNet + MLP head: 5-shot over seeds [0, 1, 2] | – | 74.12 ± 0.57 (sd) |
+| ResNet-18, KAN metric + margin (ours): 5-shot over seeds [0, 1, 2] | – | 73.57 ± 0.62 (sd) |
+| DenseNet-121, ProtoNet + MLP head: 5-shot over seeds [0, 1, 2] | – | 75.22 ± 0.27 (sd) |
+| DenseNet-121, KAN metric + margin (ours): 5-shot over seeds [0, 1, 2] | – | 74.77 ± 0.79 (sd) |
 
 ## Table 8 – Closed-set limited data: normal fine-tuning vs few-shot prototypes (macro-F1 %)
 

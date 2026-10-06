@@ -1,0 +1,149 @@
+[{"stream_name":"stdout","time":9.608434574,"data":"GPUs: 2 suite: ablations configs: 48\n"}
+,{"stream_name":"stdout","time":13.18649174,"data":"[gpu0] 17/24 {\"backbone\": \"resnet18\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"unified\", \"variant\": \"full\"}\n"}
+,{"stream_name":"stdout","time":13.1865229,"data":"[gpu1] 17/24 {\"backbone\": \"resnet18\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"unified\", \"variant\": \"full\"}\n"}
+,{"stream_name":"stdout","time":20.181408692,"data":"Downloading: \"https://download.pytorch.org/models/resnet18-f37072fd.pth\" to /root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth\n"}
+,{"stream_name":"stdout","time":20.181433625,"data":"Downloading: \"https://download.pytorch.org/models/resnet18-f37072fd.pth\" to /root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth\n"}
+,{"stream_name":"stderr","time":20.404016009,"data":"\r  0%|          | 0.00/44.7M [00:00\u003c?, ?B/s]\r  0%|          | 0.00/44.7M [00:00\u003c?, ?B/s]\r 39%|███▉      | 17.4M/44.7M [00:00\u003c00:00, 182MB/s]\r 26%|██▋       | 11.8M/44.7M [00:00\u003c00:00, 123MB/s]\r 91%|█████████ | 40.6M/44.7M [00:00\u003c00:00, 218MB/s]\r 67%|██████▋   | 30.1M/44.7M [00:00\u003c00:00, 164MB/s]\r100%|██████████| 44.7M/44.7M [00:00\u003c00:00, 211MB/s]\n"}
+,{"stream_name":"stderr","time":20.450665141,"data":"\r100%|██████████| 44.7M/44.7M [00:00\u003c00:00, 174MB/s]\n"}
+,{"stream_name":"stdout","time":24.783382486,"data":"  step 0 loss 1.6528 acc 0.575 4s\n"}
+,{"stream_name":"stdout","time":24.783420481,"data":"  step 0 loss 2.2927 acc 0.575 4s\n"}
+,{"stream_name":"stderr","time":24.783449598,"data":"/kaggle/working/src/train.py:68: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\n"}
+,{"stream_name":"stderr","time":24.783455461,"data":"Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)\n"}
+,{"stream_name":"stderr","time":24.783459359,"data":"  hist.append((step, float(loss), float(acc), time.time() - t0))\n"}
+,{"stream_name":"stderr","time":24.783463173,"data":"/kaggle/working/src/train.py:68: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\n"}
+,{"stream_name":"stderr","time":24.783466931,"data":"Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)\n"}
+,{"stream_name":"stderr","time":24.783470683,"data":"  hist.append((step, float(loss), float(acc), time.time() - t0))\n"}
+,{"stream_name":"stdout","time":109.747338886,"data":"  step 200 loss 0.0926 acc 0.975 89s\n"}
+,{"stream_name":"stdout","time":109.75183683,"data":"  step 200 loss 0.0352 acc 0.975 89s\n"}
+,{"stream_name":"stdout","time":155.527057991,"data":"  step 400 loss 0.2164 acc 0.950 134s\n"}
+,{"stream_name":"stdout","time":155.537713441,"data":"  step 400 loss 0.2563 acc 0.900 134s\n"}
+,{"stream_name":"stdout","time":186.431802455,"data":"  step 600 loss 0.1533 acc 0.975 165s\n"}
+,{"stream_name":"stdout","time":186.475986359,"data":"  step 600 loss 0.0087 acc 1.000 165s\n"}
+,{"stream_name":"stdout","time":214.474814324,"data":"  step 800 loss 0.0012 acc 1.000 193s\n"}
+,{"stream_name":"stdout","time":214.898983514,"data":"  step 800 loss 0.0005 acc 1.000 194s\n"}
+,{"stream_name":"stdout","time":241.812393567,"data":"  step 1000 loss 0.0007 acc 1.000 221s\n"}
+,{"stream_name":"stdout","time":243.353729682,"data":"  step 1000 loss 0.0030 acc 1.000 222s\n"}
+,{"stream_name":"stdout","time":268.728949855,"data":"  step 1199 loss 0.0045 acc 1.000 248s\n"}
+,{"stream_name":"stdout","time":271.607092247,"data":"  step 1199 loss 0.0137 acc 1.000 251s\n"}
+,{"stream_name":"stdout","time":523.319441275,"data":"[gpu0] 18/24 {\"backbone\": \"resnet18\", \"fold\": 2, \"head\": \"none\", \"kind\": \"train\", \"method\": \"proto\", \"objective\": \"proto\", \"protocol\": \"unified\", \"seed\": 1}\n"}
+,{"stream_name":"stdout","time":524.442536741,"data":"  step 0 loss 1.2350 acc 0.675 1s\n"}
+,{"stream_name":"stdout","time":530.107585049,"data":"[gpu1] 18/24 {\"backbone\": \"resnet18\", \"fold\": 2, \"head\": \"none\", \"kind\": \"train\", \"method\": \"proto\", \"objective\": \"proto\", \"protocol\": \"unified\", \"seed\": 2}\n"}
+,{"stream_name":"stdout","time":531.043183294,"data":"  step 0 loss 1.3765 acc 0.600 1s\n"}
+,{"stream_name":"stdout","time":571.340252418,"data":"  step 200 loss 0.1838 acc 0.950 48s\n"}
+,{"stream_name":"stdout","time":571.950402581,"data":"  step 200 loss 0.2526 acc 0.975 42s\n"}
+,{"stream_name":"stdout","time":599.000995934,"data":"  step 400 loss 0.0130 acc 1.000 69s\n"}
+,{"stream_name":"stdout","time":600.227437505,"data":"  step 400 loss 0.0576 acc 0.975 76s\n"}
+,{"stream_name":"stdout","time":625.584591095,"data":"  step 600 loss 0.0045 acc 1.000 95s\n"}
+,{"stream_name":"stdout","time":628.70980127,"data":"  step 600 loss 0.0650 acc 1.000 105s\n"}
+,{"stream_name":"stdout","time":652.100991464,"data":"  step 800 loss 0.1186 acc 0.950 122s\n"}
+,{"stream_name":"stdout","time":657.126571832,"data":"  step 800 loss 0.0296 acc 0.975 133s\n"}
+,{"stream_name":"stdout","time":678.601857271,"data":"  step 1000 loss 0.0100 acc 1.000 148s\n"}
+,{"stream_name":"stdout","time":685.541756941,"data":"  step 1000 loss 0.0046 acc 1.000 162s\n"}
+,{"stream_name":"stdout","time":704.911390021,"data":"  step 1199 loss 0.0617 acc 0.975 175s\n"}
+,{"stream_name":"stdout","time":713.819653233,"data":"  step 1199 loss 0.0037 acc 1.000 190s\n"}
+,{"stream_name":"stdout","time":898.374290119,"data":"[gpu1] 19/24 {\"backbone\": \"resnet18\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"unified\", \"seed\": 2}\n"}
+,{"stream_name":"stdout","time":898.807205517,"data":"  step 0 loss 1.6038 acc 0.400 0s\n"}
+,{"stream_name":"stdout","time":898.953615269,"data":"[gpu0] 19/24 {\"backbone\": \"resnet18\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"unified\", \"seed\": 1}\n"}
+,{"stream_name":"stdout","time":899.324467112,"data":"  step 0 loss 1.3502 acc 0.500 0s\n"}
+,{"stream_name":"stdout","time":926.246938209,"data":"  step 200 loss 0.4152 acc 0.950 28s\n"}
+,{"stream_name":"stdout","time":928.893046801,"data":"  step 200 loss 0.1157 acc 0.975 30s\n"}
+,{"stream_name":"stdout","time":952.64805586,"data":"  step 400 loss 0.1576 acc 0.950 54s\n"}
+,{"stream_name":"stdout","time":957.247344043,"data":"  step 400 loss 0.1059 acc 0.975 58s\n"}
+,{"stream_name":"stdout","time":978.963785209,"data":"  step 600 loss 0.0011 acc 1.000 80s\n"}
+,{"stream_name":"stdout","time":985.737551089,"data":"  step 600 loss 0.0782 acc 0.975 87s\n"}
+,{"stream_name":"stdout","time":1005.736793617,"data":"  step 800 loss 0.0532 acc 0.975 107s\n"}
+,{"stream_name":"stdout","time":1014.153902463,"data":"  step 800 loss 0.0058 acc 1.000 115s\n"}
+,{"stream_name":"stdout","time":1032.238181394,"data":"  step 1000 loss 0.0214 acc 1.000 134s\n"}
+,{"stream_name":"stdout","time":1042.554134782,"data":"  step 1000 loss 0.0055 acc 1.000 143s\n"}
+,{"stream_name":"stdout","time":1058.563000178,"data":"  step 1199 loss 0.1382 acc 0.975 160s\n"}
+,{"stream_name":"stdout","time":1071.070737082,"data":"  step 1199 loss 0.0020 acc 1.000 172s\n"}
+,{"stream_name":"stdout","time":1267.490771133,"data":"[gpu1] 20/24 {\"backbone\": \"resnet18\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"unified\", \"seed\": 2}\n"}
+,{"stream_name":"stdout","time":1267.866027397,"data":"  step 0 loss 2.2778 acc 0.400 0s\n"}
+,{"stream_name":"stdout","time":1276.614236197,"data":"[gpu0] 20/24 {\"backbone\": \"resnet18\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"unified\", \"seed\": 1}\n"}
+,{"stream_name":"stdout","time":1277.02586033,"data":"  step 0 loss 2.0292 acc 0.500 0s\n"}
+,{"stream_name":"stdout","time":1295.677979346,"data":"  step 200 loss 0.5432 acc 0.900 28s\n"}
+,{"stream_name":"stdout","time":1306.786874241,"data":"  step 200 loss 0.5040 acc 0.875 30s\n"}
+,{"stream_name":"stdout","time":1322.390772675,"data":"  step 400 loss 0.0290 acc 1.000 55s\n"}
+,{"stream_name":"stdout","time":1335.277125827,"data":"  step 400 loss 0.2277 acc 0.950 58s\n"}
+,{"stream_name":"stdout","time":1349.018663716,"data":"  step 600 loss 0.0039 acc 1.000 81s\n"}
+,{"stream_name":"stdout","time":1363.895285273,"data":"  step 600 loss 0.0558 acc 1.000 87s\n"}
+,{"stream_name":"stdout","time":1376.050024301,"data":"  step 800 loss 0.2155 acc 0.950 108s\n"}
+,{"stream_name":"stdout","time":1392.585948961,"data":"  step 800 loss 0.0298 acc 1.000 116s\n"}
+,{"stream_name":"stdout","time":1402.852247842,"data":"  step 1000 loss 0.0692 acc 0.975 135s\n"}
+,{"stream_name":"stdout","time":1421.277937156,"data":"  step 1000 loss 0.0012 acc 1.000 144s\n"}
+,{"stream_name":"stdout","time":1429.55967204,"data":"  step 1199 loss 0.0779 acc 0.975 162s\n"}
+,{"stream_name":"stdout","time":1450.484842303,"data":"  step 1199 loss 0.0152 acc 1.000 174s\n"}
+,{"stream_name":"stdout","time":1644.056003707,"data":"[gpu1] 21/24 {\"backbone\": \"densenet121\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"unified\", \"variant\": \"full\"}\n"}
+,{"stream_name":"stdout","time":1644.245211736,"data":"Downloading: \"https://download.pytorch.org/models/densenet121-a639ec97.pth\" to /root/.cache/torch/hub/checkpoints/densenet121-a639ec97.pth\n"}
+,{"stream_name":"stderr","time":1644.546810172,"data":"\r  0%|          | 0.00/30.8M [00:00\u003c?, ?B/s]\r 26%|██▌       | 7.88M/30.8M [00:00\u003c00:00, 81.8MB/s]\r 62%|██████▏   | 19.0M/30.8M [00:00\u003c00:00, 102MB/s] \r100%|██████████| 30.8M/30.8M [00:00\u003c00:00, 107MB/s]\n"}
+,{"stream_name":"stdout","time":1646.000015227,"data":"  step 0 loss 2.2830 acc 0.475 1s\n"}
+,{"stream_name":"stdout","time":1667.296112113,"data":"[gpu0] 21/24 {\"backbone\": \"densenet121\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"unified\", \"variant\": \"full\"}\n"}
+,{"stream_name":"stdout","time":1668.333124366,"data":"  step 0 loss 1.4987 acc 0.475 1s\n"}
+,{"stream_name":"stdout","time":1724.476529369,"data":"  step 200 loss 0.2044 acc 0.925 80s\n"}
+,{"stream_name":"stdout","time":1752.667371457,"data":"  step 200 loss 0.0828 acc 0.950 85s\n"}
+,{"stream_name":"stdout","time":1802.201524174,"data":"  step 400 loss 0.1471 acc 0.950 158s\n"}
+,{"stream_name":"stdout","time":1836.134786717,"data":"  step 400 loss 0.0133 acc 1.000 169s\n"}
+,{"stream_name":"stdout","time":1879.811361325,"data":"  step 600 loss 0.0056 acc 1.000 235s\n"}
+,{"stream_name":"stdout","time":1919.630304844,"data":"  step 600 loss 0.0756 acc 0.975 252s\n"}
+,{"stream_name":"stdout","time":1957.385401278,"data":"  step 800 loss 0.0007 acc 1.000 313s\n"}
+,{"stream_name":"stdout","time":2003.127794493,"data":"  step 800 loss 0.0002 acc 1.000 336s\n"}
+,{"stream_name":"stdout","time":2034.968316529,"data":"  step 1000 loss 0.0000 acc 1.000 390s\n"}
+,{"stream_name":"stdout","time":2086.500485246,"data":"  step 1000 loss 0.0007 acc 1.000 419s\n"}
+,{"stream_name":"stdout","time":2112.28879472,"data":"  step 1199 loss 0.0001 acc 1.000 468s\n"}
+,{"stream_name":"stdout","time":2170.289922263,"data":"  step 1199 loss 0.0027 acc 1.000 503s\n"}
+,{"stream_name":"stdout","time":2458.44980348,"data":"[gpu1] 22/24 {\"backbone\": \"densenet121\", \"fold\": 2, \"head\": \"none\", \"kind\": \"train\", \"method\": \"proto\", \"objective\": \"proto\", \"protocol\": \"unified\", \"seed\": 2}\n"}
+,{"stream_name":"stdout","time":2459.130976374,"data":"  step 0 loss 1.3517 acc 0.625 0s\n"}
+,{"stream_name":"stdout","time":2472.506464091,"data":"[gpu0] 22/24 {\"backbone\": \"densenet121\", \"fold\": 2, \"head\": \"none\", \"kind\": \"train\", \"method\": \"proto\", \"objective\": \"proto\", \"protocol\": \"unified\", \"seed\": 1}\n"}
+,{"stream_name":"stdout","time":2473.143256217,"data":"  step 0 loss 1.2168 acc 0.850 0s\n"}
+,{"stream_name":"stdout","time":2537.146649352,"data":"  step 200 loss 0.1090 acc 0.975 78s\n"}
+,{"stream_name":"stdout","time":2557.504957025,"data":"  step 200 loss 0.0695 acc 1.000 85s\n"}
+,{"stream_name":"stdout","time":2614.566113878,"data":"  step 400 loss 0.0074 acc 1.000 156s\n"}
+,{"stream_name":"stdout","time":2641.124870296,"data":"  step 400 loss 0.0257 acc 1.000 168s\n"}
+,{"stream_name":"stdout","time":2691.936469973,"data":"  step 600 loss 0.0067 acc 1.000 233s\n"}
+,{"stream_name":"stdout","time":2724.722478913,"data":"  step 600 loss 0.0596 acc 0.975 252s\n"}
+,{"stream_name":"stdout","time":2769.202607073,"data":"  step 800 loss 0.0903 acc 0.975 310s\n"}
+,{"stream_name":"stdout","time":2808.317510208,"data":"  step 800 loss 0.0120 acc 1.000 336s\n"}
+,{"stream_name":"stdout","time":2846.300487983,"data":"  step 1000 loss 0.0035 acc 1.000 388s\n"}
+,{"stream_name":"stdout","time":2891.8129504,"data":"  step 1000 loss 0.0021 acc 1.000 419s\n"}
+,{"stream_name":"stdout","time":2923.082102954,"data":"  step 1199 loss 0.0079 acc 1.000 464s\n"}
+,{"stream_name":"stdout","time":2975.065166875,"data":"  step 1199 loss 0.0037 acc 1.000 502s\n"}
+,{"stream_name":"stdout","time":3107.462051858,"data":"[gpu1] 23/24 {\"backbone\": \"densenet121\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"unified\", \"seed\": 2}\n"}
+,{"stream_name":"stdout","time":3108.042756021,"data":"  step 0 loss 1.4756 acc 0.400 0s\n"}
+,{"stream_name":"stdout","time":3163.172944587,"data":"[gpu0] 23/24 {\"backbone\": \"densenet121\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"unified\", \"seed\": 1}\n"}
+,{"stream_name":"stdout","time":3163.802263374,"data":"  step 0 loss 1.2735 acc 0.600 0s\n"}
+,{"stream_name":"stdout","time":3187.089702738,"data":"  step 200 loss 0.1321 acc 0.975 79s\n"}
+,{"stream_name":"stdout","time":3248.180363934,"data":"  step 200 loss 0.0779 acc 1.000 85s\n"}
+,{"stream_name":"stdout","time":3264.490689738,"data":"  step 400 loss 0.0230 acc 0.975 157s\n"}
+,{"stream_name":"stdout","time":3331.91710052,"data":"  step 400 loss 0.0388 acc 0.975 169s\n"}
+,{"stream_name":"stdout","time":3341.784359427,"data":"  step 600 loss 0.0061 acc 1.000 234s\n"}
+,{"stream_name":"stdout","time":3415.544608496,"data":"  step 600 loss 0.1097 acc 0.950 252s\n"}
+,{"stream_name":"stdout","time":3419.094357405,"data":"  step 800 loss 0.0520 acc 0.975 311s\n"}
+,{"stream_name":"stdout","time":3496.424675969,"data":"  step 1000 loss 0.0015 acc 1.000 389s\n"}
+,{"stream_name":"stdout","time":3498.894119263,"data":"  step 800 loss 0.0012 acc 1.000 336s\n"}
+,{"stream_name":"stdout","time":3573.334281649,"data":"  step 1199 loss 0.0081 acc 1.000 466s\n"}
+,{"stream_name":"stdout","time":3582.23694088,"data":"  step 1000 loss 0.0004 acc 1.000 419s\n"}
+,{"stream_name":"stdout","time":3666.403453761,"data":"  step 1199 loss 0.0055 acc 1.000 503s\n"}
+,{"stream_name":"stdout","time":3804.834331525,"data":"[gpu1] 24/24 {\"backbone\": \"densenet121\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"unified\", \"seed\": 2}\n"}
+,{"stream_name":"stdout","time":3805.611202657,"data":"  step 0 loss 2.2543 acc 0.400 0s\n"}
+,{"stream_name":"stdout","time":3885.045217594,"data":"  step 200 loss 0.2802 acc 0.950 80s\n"}
+,{"stream_name":"stdout","time":3908.934787816,"data":"[gpu0] 24/24 {\"backbone\": \"densenet121\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"unified\", \"seed\": 1}\n"}
+,{"stream_name":"stdout","time":3909.557297153,"data":"  step 0 loss 2.0241 acc 0.600 0s\n"}
+,{"stream_name":"stdout","time":3962.823902995,"data":"  step 400 loss 0.0025 acc 1.000 158s\n"}
+,{"stream_name":"stdout","time":3994.089459842,"data":"  step 200 loss 0.1248 acc 0.975 85s\n"}
+,{"stream_name":"stdout","time":4040.428248821,"data":"  step 600 loss 0.0463 acc 0.975 235s\n"}
+,{"stream_name":"stdout","time":4078.10469965,"data":"  step 400 loss 0.1850 acc 0.950 169s\n"}
+,{"stream_name":"stdout","time":4118.056088804,"data":"  step 800 loss 0.0967 acc 0.975 313s\n"}
+,{"stream_name":"stdout","time":4162.099131949,"data":"  step 600 loss 0.1380 acc 0.975 253s\n"}
+,{"stream_name":"stdout","time":4195.6674871,"data":"  step 1000 loss 0.0012 acc 1.000 390s\n"}
+,{"stream_name":"stdout","time":4245.723723621,"data":"  step 800 loss 0.0507 acc 0.975 337s\n"}
+,{"stream_name":"stdout","time":4272.629121979,"data":"  step 1199 loss 0.0202 acc 1.000 467s\n"}
+,{"stream_name":"stdout","time":4330.380353757,"data":"  step 1000 loss 0.0000 acc 1.000 421s\n"}
+,{"stream_name":"stdout","time":4415.145696156,"data":"  step 1199 loss 0.0014 acc 1.000 506s\n"}
+,{"stream_name":"stdout","time":4689.745974949,"data":"finished [0, 0]\n"}
+,{"stream_name":"stderr","time":4692.355338468,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":4692.355376377,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":4692.656119058,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":4692.65615953,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":4693.462671312,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":4694.474397722,"data":"[NbConvertApp] Writing 391636 bytes to __results__.html\n"}
+]
