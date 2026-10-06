@@ -41,8 +41,9 @@ The repository contains:
   only DenseNet-121 (about +1 point). This is reported as a negative result.
 - **Changing the source dataset costs the most accuracy.** When support and
   query photos come from different source datasets (other phone, region,
-  background, ripeness), 5-shot accuracy drops by 13–28 points. Centring the
-  features on the unlabelled test photos of each source recovers up to 4.4
+  background, ripeness), 5-shot accuracy is only 46–68%, although these tasks
+  have just the 2 or 3 cultivars both sources share (chance level 45%). Centring
+  the features on the unlabelled test photos of each source recovers up to 4.4
   points. Cultivars that appear in several source datasets are the hardest to
   recognise.
 - **A larger backbone adds little.** DINOv2 ViT-B/14 is at most one point
@@ -83,8 +84,10 @@ No new images were collected. Three public datasets (CC BY 4.0) are merged:
   full-frame variant keeps the background for an ablation.
 - **Capture groups** (`src/data.py: build_groups`): photos of the same fruit
   taken seconds apart (consecutive EXIF timestamps of one camera, at most 10 s
-  apart), or near-identical images (DINOv2 cosine similarity ≥ 0.97), form one
-  group. Support and query
+  apart), near-identical images (DINOv2 cosine similarity ≥ 0.97), or
+  re-encoded copies (perceptual hash within 2 bits and cosine ≥ 0.97) form one
+  group; [`docs/grouping.md`](docs/grouping.md) shows how the thresholds were
+  chosen. Support and query
   sets never share a group, and closed-set test splits hold out whole groups.
 - **Metadata** (`benchmark/`): `meta.csv` lists every image with its source,
   original label, cultivar, camera and timestamp. `groups.csv` gives its
@@ -111,9 +114,9 @@ re-compression causes small pixel differences.
 | Protocol | What it measures |
 |---|---|
 | unified | 3-fold cultivar cross-validation: 16 training and 8 unseen cultivars per fold; 5-way 1/5/10-shot tasks, 600 episodes each |
-| cross-domain | support photos from one source dataset, query photos of the same cultivars from another |
+| cross-domain | support photos from one source dataset, query photos of the same cultivars from another (2- or 3-way: only shared cultivars) |
 | open set | 5 known cultivars plus 1 unknown; AUROC of rejecting the unknown |
-| leave one dataset out | train on two source datasets, test on the third |
+| leave one dataset out | train on two source datasets, test on the third (seen and new cultivars separately) |
 | closed set | K ∈ {1, 5, 10, 20, all} images per cultivar: ordinary fine-tuning vs prototypes |
 | leakage | random image split vs capture-group split |
 
@@ -162,6 +165,7 @@ analysis/
   aggregate.py        result files -> results/tables.md and figures
   kan_curves.py       plot the learned KAN metric functions of a checkpoint
 benchmark/          meta.csv (every image) and groups.csv (capture groups)
+docs/grouping.md    how the capture-group rule and its thresholds were chosen
 notebooks/          MangoFS_BD.ipynb: the library and pipeline as one Kaggle notebook
 figures/            main result figures
 results/
