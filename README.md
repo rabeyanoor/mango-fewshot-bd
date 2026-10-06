@@ -30,19 +30,26 @@ The repository contains:
 
 - **Unseen cultivars are much harder than the closed set.** On the 5-way
   unseen-cultivar task, the best model per backbone reaches 68–70% with 1 photo
-  per cultivar and 78–80% with 5 photos. Ordinary fine-tuning reaches
+  per cultivar and 78–81% with 5 photos. Ordinary fine-tuning reaches
   95.8–99.5% when every cultivar is known in advance.
 - **Projection heads hurt transfer.** Adding an MLP or KAN head lowers
   accuracy on unseen cultivars. The best embedding is the backbone feature of a
-  model that was trained with a head and is then used without it: 81–83% in
+  model that was trained with a head and is then used without it: 81–84% in
   5-shot tasks.
 - **KAN does not help.** The KAN head is on par with the MLP head (−1.9 to
   +0.6 points) with about ten times as many parameters. The KAN metric helps
   only DenseNet-121 (about +1 point). This is reported as a negative result.
 - **Changing the source dataset costs the most accuracy.** When support and
   query photos come from different source datasets (other phone, region,
-  background, ripeness), 5-shot accuracy drops by 13–28 points. Cultivars
-  that appear in several source datasets are the hardest to recognise.
+  background, ripeness), 5-shot accuracy drops by 13–28 points. Centring the
+  features on the unlabelled test photos of each source recovers up to 4.4
+  points. Cultivars that appear in several source datasets are the hardest to
+  recognise.
+- **A larger backbone adds little.** DINOv2 ViT-B/14 is at most one point
+  more accurate than ViT-S/14, with four times the parameters.
+- **The differences are not seed noise.** Over three training seeds the
+  accuracy varies by a standard deviation of at most 1 point, while the gaps
+  between heads are 3–5 points.
 - **Leakage inflates closed-set accuracy by only 0.9–2.6 points**, because
   closed-set accuracy is already near the ceiling.
 - **With 5 or more images per cultivar of a known set, ordinary fine-tuning
