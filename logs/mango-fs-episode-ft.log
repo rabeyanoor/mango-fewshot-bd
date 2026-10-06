@@ -1,0 +1,25 @@
+[{"stream_name":"stdout","time":10.666281104,"data":"GPUs: 2 suite: episode_ft configs: 6\n"}
+,{"stream_name":"stdout","time":14.431154437,"data":"[gpu0] 1/3 {\"backbone\": \"resnet18\", \"fold\": 0, \"kind\": \"episode_ft\", \"method\": null, \"protocol\": \"unified\"}\n"}
+,{"stream_name":"stdout","time":14.505868695,"data":"[gpu1] 1/3 {\"backbone\": \"densenet121\", \"fold\": 0, \"kind\": \"episode_ft\", \"method\": null, \"protocol\": \"unified\"}\n"}
+,{"stream_name":"stdout","time":22.520745582,"data":"Downloading: \"https://download.pytorch.org/models/resnet18-f37072fd.pth\" to /root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth\n"}
+,{"stream_name":"stdout","time":22.630667827,"data":"Downloading: \"https://download.pytorch.org/models/densenet121-a639ec97.pth\" to /root/.cache/torch/hub/checkpoints/densenet121-a639ec97.pth\n"}
+,{"stream_name":"stderr","time":22.815744169,"data":"\r  0%|          | 0.00/44.7M [00:00\u003c?, ?B/s]\r 18%|█▊        | 7.88M/44.7M [00:00\u003c00:00, 82.6MB/s]\r  0%|          | 0.00/30.8M [00:00\u003c?, ?B/s]\r 59%|█████▉    | 26.2M/44.7M [00:00\u003c00:00, 147MB/s] \r 26%|██▌       | 7.88M/30.8M [00:00\u003c00:00, 82.2MB/s]\r100%|██████████| 44.7M/44.7M [00:00\u003c00:00, 159MB/s]\n"}
+,{"stream_name":"stderr","time":22.855338296,"data":"\r 84%|████████▍ | 26.0M/30.8M [00:00\u003c00:00, 145MB/s] \r100%|██████████| 30.8M/30.8M [00:00\u003c00:00, 144MB/s]\n"}
+,{"stream_name":"stderr","time":958.971292441,"data":"/kaggle/working/src/finetune.py:50: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stderr","time":958.971426845,"data":"  sched.step()\n"}
+,{"stream_name":"stdout","time":1324.910231254,"data":"[gpu0] 2/3 {\"backbone\": \"resnet18\", \"fold\": 1, \"kind\": \"episode_ft\", \"method\": null, \"protocol\": \"unified\"}\n"}
+,{"stream_name":"stdout","time":2577.477283344,"data":"[gpu0] 3/3 {\"backbone\": \"resnet18\", \"fold\": 2, \"kind\": \"episode_ft\", \"method\": null, \"protocol\": \"unified\"}\n"}
+,{"stream_name":"stdout","time":3365.445327704,"data":"[gpu1] 2/3 {\"backbone\": \"densenet121\", \"fold\": 1, \"kind\": \"episode_ft\", \"method\": null, \"protocol\": \"unified\"}\n"}
+,{"stream_name":"stderr","time":3365.956553946,"data":"/kaggle/working/src/finetune.py:50: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stderr","time":3365.956643184,"data":"  sched.step()\n"}
+,{"stream_name":"stdout","time":6690.846100308,"data":"[gpu1] 3/3 {\"backbone\": \"densenet121\", \"fold\": 2, \"kind\": \"episode_ft\", \"method\": null, \"protocol\": \"unified\"}\n"}
+,{"stream_name":"stderr","time":7139.544964212,"data":"/kaggle/working/src/finetune.py:50: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stderr","time":7139.545037683,"data":"  sched.step()\n"}
+,{"stream_name":"stdout","time":10030.865402689,"data":"finished [0, 0]\n"}
+,{"stream_name":"stderr","time":10034.069910603,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":10034.069948623,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":10034.431625549,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":10034.431660391,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":10035.398243879,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":10036.583658371,"data":"[NbConvertApp] Writing 386437 bytes to __results__.html\n"}
+]

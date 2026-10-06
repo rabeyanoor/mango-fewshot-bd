@@ -1,0 +1,21 @@
+[{"stream_name":"stdout","time":91.425590012,"data":"11615 images; [('Mangifera2012', 'Amrapali-252'), ('Mangifera2012', 'Bari-4-235'), ('Mangifera2012', 'Bari-7-176'), ('Mangifera2012', 'Fazlee-156'), ('Mangifera2012', 'Harivanga-202'), ('Mangifera2012', 'Kanchon Langra-210'), ('Mangifera2012', 'Katimon-163'), ('Mangifera2012', 'Langra-202'), ('Mangifera2012', 'Mollika-221'), ('Mangifera2012', 'Nilambori-195'), ('MangoClassify12', 'Amrapali'), ('MangoClassify12', 'Banana'), ('MangoClassify12', 'Bari 4'), ('MangoClassify12', 'Fazli'), ('MangoClassify12', 'GobindoBhog'), ('MangoClassify12', 'GopalBhog'), ('MangoClassify12', 'Harivanga'), ('MangoClassify12', 'Himsagar'), ('MangoClassify12', 'Khrishapat'), ('MangoClassify12', 'Langra'), ('MangoClassify12', 'RaniBhog'), ('MangoClassify12', 'Sundari'), ('MangoImageBD', 'Amrapali'), ('MangoImageBD', 'Ashshina Classic'), ('MangoImageBD', 'Ashshina Zhinuk'), ('MangoImageBD', 'Banana Mango'), ('MangoImageBD', 'Bari-11'), ('MangoImageBD', 'Bari-4'), ('MangoImageBD', 'Fazli Classic'), ('MangoImageBD', 'Fazli Shurmai'), ('MangoImageBD', 'Gourmoti'), ('MangoImageBD', 'Harivanga'), ('MangoImageBD', 'Himsagor'), ('MangoImageBD', 'Katimon'), ('MangoImageBD', 'Langra'), ('MangoImageBD', 'Rupali'), ('MangoImageBD', 'Shada')]\n"}
+,{"stream_name":"stdout","time":97.238153554,"data":"0\n"}
+,{"stream_name":"stdout","time":165.717084781,"data":"1000\n"}
+,{"stream_name":"stdout","time":238.837418565,"data":"2000\n"}
+,{"stream_name":"stdout","time":305.437322732,"data":"3000\n"}
+,{"stream_name":"stdout","time":380.336777306,"data":"4000\n"}
+,{"stream_name":"stdout","time":449.147058396,"data":"5000\n"}
+,{"stream_name":"stdout","time":636.459657505,"data":"6000\n"}
+,{"stream_name":"stdout","time":1005.68866929,"data":"7000\n"}
+,{"stream_name":"stdout","time":1389.44908058,"data":"8000\n"}
+,{"stream_name":"stdout","time":1772.702778104,"data":"9000\n"}
+,{"stream_name":"stdout","time":2162.676715786,"data":"10000\n"}
+,{"stream_name":"stdout","time":2510.738918784,"data":"11000\n"}
+,{"stream_name":"stdout","time":2748.183739768,"data":"done 11615 fruit found: 11614\n"}
+,{"stream_name":"stderr","time":2752.985313986,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2752.985354787,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2754.158844016,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2754.158887603,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2757.741003011,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2759.296342979,"data":"[NbConvertApp] Writing 364696 bytes to __results__.html\n"}
+]

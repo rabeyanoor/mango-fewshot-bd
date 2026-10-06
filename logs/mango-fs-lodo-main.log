@@ -1,0 +1,325 @@
+[{"stream_name":"stdout","time":9.090465937,"data":"GPUs: 2 suite: lodo_main configs: 48\n"}
+,{"stream_name":"stdout","time":12.334351024,"data":"[gpu0] 1/24 {\"backbone\": \"resnet18\", \"fold\": 0, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":12.409496311,"data":"[gpu1] 1/24 {\"backbone\": \"resnet18\", \"fold\": 0, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"ce\", \"objective\": \"ce\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":19.806365033,"data":"Downloading: \"https://download.pytorch.org/models/resnet18-f37072fd.pth\" to /root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth\n"}
+,{"stream_name":"stdout","time":19.833384911,"data":"Downloading: \"https://download.pytorch.org/models/resnet18-f37072fd.pth\" to /root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth\n"}
+,{"stream_name":"stderr","time":20.043877775,"data":"\r  0%|          | 0.00/44.7M [00:00\u003c?, ?B/s]\r  0%|          | 0.00/44.7M [00:00\u003c?, ?B/s]\r 36%|███▋      | 16.2M/44.7M [00:00\u003c00:00, 170MB/s]\r 37%|███▋      | 16.5M/44.7M [00:00\u003c00:00, 172MB/s]\r 82%|████████▏ | 36.5M/44.7M [00:00\u003c00:00, 195MB/s]\r 76%|███████▌  | 34.0M/44.7M [00:00\u003c00:00, 178MB/s]\r100%|██████████| 44.7M/44.7M [00:00\u003c00:00, 197MB/s]\n"}
+,{"stream_name":"stderr","time":20.093236821,"data":"\r100%|██████████| 44.7M/44.7M [00:00\u003c00:00, 180MB/s]\n"}
+,{"stream_name":"stdout","time":24.879166036,"data":"  step 0 loss 4.1386 acc 0.038 4s\n"}
+,{"stream_name":"stderr","time":24.879196789,"data":"/kaggle/working/src/train.py:68: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\n"}
+,{"stream_name":"stderr","time":24.879218703,"data":"Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)\n"}
+,{"stream_name":"stderr","time":24.879222113,"data":"  hist.append((step, float(loss), float(acc), time.time() - t0))\n"}
+,{"stream_name":"stdout","time":120.49338577,"data":"  step 200 loss 0.4803 acc 0.850 100s\n"}
+,{"stream_name":"stdout","time":148.686519832,"data":"  step 400 loss 0.0350 acc 0.988 128s\n"}
+,{"stream_name":"stdout","time":174.717183058,"data":"  step 600 loss 0.0160 acc 1.000 154s\n"}
+,{"stream_name":"stdout","time":200.227686433,"data":"  step 800 loss 0.0367 acc 0.988 180s\n"}
+,{"stream_name":"stdout","time":225.363083825,"data":"  step 1000 loss 0.0043 acc 1.000 205s\n"}
+,{"stream_name":"stdout","time":250.652025263,"data":"  step 1199 loss 0.0913 acc 0.988 230s\n"}
+,{"stream_name":"stdout","time":436.721637723,"data":"[gpu0] 2/24 {\"backbone\": \"resnet18\", \"fold\": 0, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stderr","time":438.349500729,"data":"/kaggle/working/src/train.py:68: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\n"}
+,{"stream_name":"stderr","time":438.34953673,"data":"Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)\n"}
+,{"stream_name":"stderr","time":438.349541947,"data":"  hist.append((step, float(loss), float(acc), time.time() - t0))\n"}
+,{"stream_name":"stdout","time":438.349760462,"data":"  step 0 loss 1.3589 acc 0.575 1s\n"}
+,{"stream_name":"stdout","time":464.701575498,"data":"  step 200 loss 0.1005 acc 0.950 28s\n"}
+,{"stream_name":"stdout","time":491.804529746,"data":"  step 400 loss 0.0356 acc 1.000 55s\n"}
+,{"stream_name":"stdout","time":516.967558997,"data":"[gpu1] 2/24 {\"backbone\": \"resnet18\", \"fold\": 0, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":517.608587953,"data":"  step 0 loss 1.9436 acc 0.575 0s\n"}
+,{"stream_name":"stdout","time":519.631757309,"data":"  step 600 loss 0.0290 acc 1.000 83s\n"}
+,{"stream_name":"stdout","time":543.549647511,"data":"  step 200 loss 0.3888 acc 0.900 26s\n"}
+,{"stream_name":"stdout","time":546.515925952,"data":"  step 800 loss 0.0024 acc 1.000 109s\n"}
+,{"stream_name":"stdout","time":569.728977104,"data":"  step 400 loss 0.1324 acc 0.950 53s\n"}
+,{"stream_name":"stdout","time":573.246469071,"data":"  step 1000 loss 0.0063 acc 1.000 136s\n"}
+,{"stream_name":"stdout","time":596.109887493,"data":"  step 600 loss 0.0253 acc 1.000 79s\n"}
+,{"stream_name":"stdout","time":600.12262958,"data":"  step 1199 loss 0.0677 acc 0.975 163s\n"}
+,{"stream_name":"stdout","time":622.886368444,"data":"  step 800 loss 0.0020 acc 1.000 106s\n"}
+,{"stream_name":"stdout","time":649.971025909,"data":"  step 1000 loss 0.0454 acc 0.975 133s\n"}
+,{"stream_name":"stdout","time":676.874730609,"data":"  step 1199 loss 0.0944 acc 0.975 160s\n"}
+,{"stream_name":"stdout","time":869.110486951,"data":"[gpu0] 3/24 {\"backbone\": \"densenet121\", \"fold\": 0, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":869.470835857,"data":"Downloading: \"https://download.pytorch.org/models/densenet121-a639ec97.pth\" to /root/.cache/torch/hub/checkpoints/densenet121-a639ec97.pth\n"}
+,{"stream_name":"stderr","time":869.6396421,"data":"\r  0%|          | 0.00/30.8M [00:00\u003c?, ?B/s]\r 60%|█████▉    | 18.4M/30.8M [00:00\u003c00:00, 191MB/s]\r100%|██████████| 30.8M/30.8M [00:00\u003c00:00, 192MB/s]\n"}
+,{"stream_name":"stdout","time":1000.653297106,"data":"[gpu1] 3/24 {\"backbone\": \"densenet121\", \"fold\": 0, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"ce\", \"objective\": \"ce\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":1002.006455777,"data":"  step 0 loss 3.8589 acc 0.062 1s\n"}
+,{"stream_name":"stdout","time":1077.366017443,"data":"  step 200 loss 0.4003 acc 0.850 76s\n"}
+,{"stream_name":"stdout","time":1146.676997128,"data":"[gpu0] 4/24 {\"backbone\": \"densenet121\", \"fold\": 0, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":1147.65634551,"data":"  step 0 loss 1.5085 acc 0.500 1s\n"}
+,{"stream_name":"stdout","time":1152.79723751,"data":"  step 400 loss 0.0207 acc 1.000 152s\n"}
+,{"stream_name":"stdout","time":1221.733629015,"data":"  step 200 loss 0.2115 acc 0.925 75s\n"}
+,{"stream_name":"stdout","time":1227.446198074,"data":"  step 600 loss 0.0074 acc 1.000 226s\n"}
+,{"stream_name":"stdout","time":1297.155352471,"data":"  step 400 loss 0.0472 acc 0.975 150s\n"}
+,{"stream_name":"stdout","time":1302.205961956,"data":"  step 800 loss 0.0147 acc 1.000 301s\n"}
+,{"stream_name":"stdout","time":1373.304671397,"data":"  step 600 loss 0.0196 acc 1.000 226s\n"}
+,{"stream_name":"stdout","time":1376.933232787,"data":"  step 1000 loss 0.0083 acc 1.000 376s\n"}
+,{"stream_name":"stdout","time":1449.686194401,"data":"  step 800 loss 0.0117 acc 1.000 303s\n"}
+,{"stream_name":"stdout","time":1451.243198212,"data":"  step 1199 loss 0.0281 acc 0.988 450s\n"}
+,{"stream_name":"stdout","time":1528.455483373,"data":"  step 1000 loss 0.0028 acc 1.000 382s\n"}
+,{"stream_name":"stdout","time":1607.867926194,"data":"  step 1199 loss 0.0101 acc 1.000 461s\n"}
+,{"stream_name":"stdout","time":1670.370792779,"data":"[gpu1] 4/24 {\"backbone\": \"densenet121\", \"fold\": 0, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":1670.949965119,"data":"  step 0 loss 2.2736 acc 0.500 0s\n"}
+,{"stream_name":"stdout","time":1748.875556075,"data":"  step 200 loss 0.5413 acc 0.825 78s\n"}
+,{"stream_name":"stdout","time":1827.32835048,"data":"  step 400 loss 0.0156 acc 1.000 157s\n"}
+,{"stream_name":"stdout","time":1888.767339475,"data":"[gpu0] 5/24 {\"backbone\": \"resnet50\", \"fold\": 0, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":1889.407965988,"data":"Downloading: \"https://download.pytorch.org/models/resnet50-11ad3fa6.pth\" to /root/.cache/torch/hub/checkpoints/resnet50-11ad3fa6.pth\n"}
+,{"stream_name":"stderr","time":1889.819784947,"data":"\r  0%|          | 0.00/97.8M [00:00\u003c?, ?B/s]\r 23%|██▎       | 22.6M/97.8M [00:00\u003c00:00, 236MB/s]\r 48%|████▊     | 47.0M/97.8M [00:00\u003c00:00, 248MB/s]\r 73%|███████▎  | 71.2M/97.8M [00:00\u003c00:00, 250MB/s]\r 98%|█████████▊| 95.4M/97.8M [00:00\u003c00:00, 251MB/s]\r100%|██████████| 97.8M/97.8M [00:00\u003c00:00, 249MB/s]\n"}
+,{"stream_name":"stdout","time":1905.4071507,"data":"  step 600 loss 0.0204 acc 1.000 235s\n"}
+,{"stream_name":"stdout","time":1984.832903202,"data":"  step 800 loss 0.0048 acc 1.000 314s\n"}
+,{"stream_name":"stdout","time":2063.954751848,"data":"  step 1000 loss 0.0004 acc 1.000 393s\n"}
+,{"stream_name":"stdout","time":2142.269500084,"data":"  step 1199 loss 0.0000 acc 1.000 472s\n"}
+,{"stream_name":"stdout","time":2206.193157893,"data":"[gpu0] 6/24 {\"backbone\": \"resnet50\", \"fold\": 0, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":2207.348286522,"data":"  step 0 loss 1.7545 acc 0.475 0s\n"}
+,{"stream_name":"stdout","time":2271.236796858,"data":"  step 200 loss 0.2393 acc 0.925 64s\n"}
+,{"stream_name":"stdout","time":2339.44407353,"data":"  step 400 loss 0.0065 acc 1.000 132s\n"}
+,{"stream_name":"stdout","time":2407.108645112,"data":"  step 600 loss 0.1207 acc 0.950 200s\n"}
+,{"stream_name":"stdout","time":2474.587786042,"data":"  step 800 loss 0.0019 acc 1.000 268s\n"}
+,{"stream_name":"stdout","time":2511.668023499,"data":"[gpu1] 5/24 {\"backbone\": \"resnet50\", \"fold\": 0, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"ce\", \"objective\": \"ce\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":2512.459416277,"data":"  step 0 loss 3.5575 acc 0.075 0s\n"}
+,{"stream_name":"stdout","time":2541.928287573,"data":"  step 1000 loss 0.0453 acc 0.975 335s\n"}
+,{"stream_name":"stdout","time":2573.143325126,"data":"  step 200 loss 0.3535 acc 0.913 61s\n"}
+,{"stream_name":"stdout","time":2608.545687497,"data":"  step 1199 loss 0.0005 acc 1.000 402s\n"}
+,{"stream_name":"stdout","time":2635.076816757,"data":"  step 400 loss 0.1193 acc 0.975 123s\n"}
+,{"stream_name":"stdout","time":2698.709011395,"data":"  step 600 loss 0.0158 acc 1.000 187s\n"}
+,{"stream_name":"stdout","time":2761.992264962,"data":"  step 800 loss 0.0030 acc 1.000 250s\n"}
+,{"stream_name":"stdout","time":2825.081370842,"data":"  step 1000 loss 0.0069 acc 1.000 313s\n"}
+,{"stream_name":"stdout","time":2875.643523175,"data":"[gpu0] 7/24 {\"backbone\": \"dinov2_s\", \"fold\": 0, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stderr","time":2880.703603613,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":2887.896385899,"data":"  step 1199 loss 0.0045 acc 1.000 376s\n"}
+,{"stream_name":"stdout","time":3153.843617161,"data":"[gpu1] 6/24 {\"backbone\": \"resnet50\", \"fold\": 0, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":3154.678598587,"data":"  step 0 loss 2.4669 acc 0.475 0s\n"}
+,{"stream_name":"stdout","time":3163.540876212,"data":"[gpu0] 8/24 {\"backbone\": \"dinov2_s\", \"fold\": 0, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":3164.700439637,"data":"  step 0 loss 1.4145 acc 0.450 0s\n"}
+,{"stream_name":"stdout","time":3219.838302766,"data":"  step 200 loss 0.7459 acc 0.825 65s\n"}
+,{"stream_name":"stdout","time":3232.17827619,"data":"  step 200 loss 0.6043 acc 0.800 68s\n"}
+,{"stream_name":"stdout","time":3284.520990055,"data":"  step 400 loss 0.1763 acc 0.950 130s\n"}
+,{"stream_name":"stdout","time":3300.782127573,"data":"  step 400 loss 0.0432 acc 0.975 137s\n"}
+,{"stream_name":"stdout","time":3349.104988762,"data":"  step 600 loss 0.0009 acc 1.000 195s\n"}
+,{"stream_name":"stdout","time":3369.653613773,"data":"  step 600 loss 0.0122 acc 1.000 205s\n"}
+,{"stream_name":"stdout","time":3413.674721324,"data":"  step 800 loss 0.0009 acc 1.000 259s\n"}
+,{"stream_name":"stdout","time":3438.575010413,"data":"  step 800 loss 0.0008 acc 1.000 274s\n"}
+,{"stream_name":"stdout","time":3478.275996285,"data":"  step 1000 loss 0.0067 acc 1.000 324s\n"}
+,{"stream_name":"stdout","time":3507.332568529,"data":"  step 1000 loss 0.0896 acc 0.975 343s\n"}
+,{"stream_name":"stdout","time":3542.4572387,"data":"  step 1199 loss 0.0000 acc 1.000 388s\n"}
+,{"stream_name":"stdout","time":3575.934567322,"data":"  step 1199 loss 0.0012 acc 1.000 412s\n"}
+,{"stream_name":"stdout","time":3945.840150844,"data":"[gpu0] 9/24 {\"backbone\": \"resnet18\", \"fold\": 1, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":3963.114979102,"data":"[gpu1] 7/24 {\"backbone\": \"dinov2_s\", \"fold\": 0, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"ce\", \"objective\": \"ce\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stderr","time":3965.801841004,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":3966.271008846,"data":"  step 0 loss 3.6786 acc 0.163 0s\n"}
+,{"stream_name":"stdout","time":4034.648419104,"data":"  step 200 loss 0.3948 acc 0.875 69s\n"}
+,{"stream_name":"stdout","time":4102.08613925,"data":"  step 400 loss 0.2276 acc 0.938 136s\n"}
+,{"stream_name":"stdout","time":4169.005206267,"data":"  step 600 loss 0.0155 acc 0.988 203s\n"}
+,{"stream_name":"stdout","time":4228.375747147,"data":"[gpu0] 10/24 {\"backbone\": \"resnet18\", \"fold\": 1, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":4228.747801014,"data":"  step 0 loss 1.1097 acc 0.550 0s\n"}
+,{"stream_name":"stdout","time":4235.870904812,"data":"  step 800 loss 0.0169 acc 0.988 270s\n"}
+,{"stream_name":"stdout","time":4253.486046386,"data":"  step 200 loss 0.3286 acc 0.850 25s\n"}
+,{"stream_name":"stdout","time":4278.596027608,"data":"  step 400 loss 0.0208 acc 1.000 50s\n"}
+,{"stream_name":"stdout","time":4302.248815122,"data":"  step 1000 loss 0.0004 acc 1.000 336s\n"}
+,{"stream_name":"stdout","time":4303.865261151,"data":"  step 600 loss 0.1553 acc 0.950 75s\n"}
+,{"stream_name":"stdout","time":4329.38893696,"data":"  step 800 loss 0.0296 acc 0.975 101s\n"}
+,{"stream_name":"stdout","time":4355.13981183,"data":"  step 1000 loss 0.1448 acc 0.975 127s\n"}
+,{"stream_name":"stdout","time":4368.306352882,"data":"  step 1199 loss 0.0011 acc 1.000 402s\n"}
+,{"stream_name":"stdout","time":4380.801527668,"data":"  step 1199 loss 0.0011 acc 1.000 152s\n"}
+,{"stream_name":"stdout","time":4626.47360581,"data":"[gpu1] 8/24 {\"backbone\": \"dinov2_s\", \"fold\": 0, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":4627.705683816,"data":"  step 0 loss 2.1715 acc 0.450 0s\n"}
+,{"stream_name":"stdout","time":4697.378426776,"data":"  step 200 loss 0.7633 acc 0.825 70s\n"}
+,{"stream_name":"stdout","time":4706.764226327,"data":"[gpu0] 11/24 {\"backbone\": \"densenet121\", \"fold\": 1, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":4765.995752105,"data":"  step 400 loss 0.4862 acc 0.875 139s\n"}
+,{"stream_name":"stdout","time":4834.571223744,"data":"  step 600 loss 0.0504 acc 1.000 207s\n"}
+,{"stream_name":"stdout","time":4903.315111292,"data":"  step 800 loss 0.0000 acc 1.000 276s\n"}
+,{"stream_name":"stdout","time":4971.080643936,"data":"  step 1000 loss 0.0126 acc 1.000 344s\n"}
+,{"stream_name":"stdout","time":4978.129102787,"data":"[gpu0] 12/24 {\"backbone\": \"densenet121\", \"fold\": 1, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":4978.797236408,"data":"  step 0 loss 1.2089 acc 0.675 0s\n"}
+,{"stream_name":"stdout","time":5037.095771176,"data":"  step 1199 loss 0.0009 acc 1.000 410s\n"}
+,{"stream_name":"stdout","time":5052.308425992,"data":"  step 200 loss 0.3108 acc 0.850 74s\n"}
+,{"stream_name":"stdout","time":5130.803425669,"data":"  step 400 loss 0.0014 acc 1.000 152s\n"}
+,{"stream_name":"stdout","time":5209.565512717,"data":"  step 600 loss 0.0150 acc 1.000 231s\n"}
+,{"stream_name":"stdout","time":5289.879316282,"data":"  step 800 loss 0.0033 acc 1.000 312s\n"}
+,{"stream_name":"stdout","time":5369.143786753,"data":"  step 1000 loss 0.0704 acc 0.975 391s\n"}
+,{"stream_name":"stdout","time":5382.378802287,"data":"[gpu1] 9/24 {\"backbone\": \"resnet18\", \"fold\": 1, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"ce\", \"objective\": \"ce\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":5382.71733068,"data":"  step 0 loss 3.8778 acc 0.038 0s\n"}
+,{"stream_name":"stdout","time":5406.36804164,"data":"  step 200 loss 0.3174 acc 0.875 24s\n"}
+,{"stream_name":"stdout","time":5430.343421518,"data":"  step 400 loss 0.0993 acc 0.975 48s\n"}
+,{"stream_name":"stdout","time":5447.358269928,"data":"  step 1199 loss 0.0001 acc 1.000 469s\n"}
+,{"stream_name":"stdout","time":5454.53190188,"data":"  step 600 loss 0.0784 acc 0.988 72s\n"}
+,{"stream_name":"stdout","time":5479.01942969,"data":"  step 800 loss 0.0073 acc 1.000 96s\n"}
+,{"stream_name":"stdout","time":5503.985558659,"data":"  step 1000 loss 0.0219 acc 0.988 121s\n"}
+,{"stream_name":"stdout","time":5529.359918036,"data":"  step 1199 loss 0.0114 acc 0.988 147s\n"}
+,{"stream_name":"stdout","time":5723.060063145,"data":"[gpu0] 13/24 {\"backbone\": \"resnet50\", \"fold\": 1, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":5742.678408277,"data":"[gpu1] 10/24 {\"backbone\": \"resnet18\", \"fold\": 1, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":5743.091145418,"data":"  step 0 loss 1.6993 acc 0.550 0s\n"}
+,{"stream_name":"stdout","time":5770.907972412,"data":"  step 200 loss 0.4473 acc 0.875 28s\n"}
+,{"stream_name":"stdout","time":5798.721195273,"data":"  step 400 loss 0.0035 acc 1.000 56s\n"}
+,{"stream_name":"stdout","time":5826.42736608,"data":"  step 600 loss 0.1236 acc 0.975 84s\n"}
+,{"stream_name":"stdout","time":5854.640783321,"data":"  step 800 loss 0.0764 acc 0.975 112s\n"}
+,{"stream_name":"stdout","time":5882.272075335,"data":"  step 1000 loss 0.1435 acc 0.925 139s\n"}
+,{"stream_name":"stdout","time":5909.078878218,"data":"  step 1199 loss 0.0007 acc 1.000 166s\n"}
+,{"stream_name":"stdout","time":6037.489370011,"data":"[gpu0] 14/24 {\"backbone\": \"resnet50\", \"fold\": 1, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":6038.508539697,"data":"  step 0 loss 1.3713 acc 0.500 0s\n"}
+,{"stream_name":"stdout","time":6103.499522913,"data":"  step 200 loss 0.2110 acc 0.950 65s\n"}
+,{"stream_name":"stdout","time":6172.080141034,"data":"  step 400 loss 0.0070 acc 1.000 134s\n"}
+,{"stream_name":"stdout","time":6240.147684996,"data":"  step 600 loss 0.2431 acc 0.925 202s\n"}
+,{"stream_name":"stdout","time":6252.280506525,"data":"[gpu1] 11/24 {\"backbone\": \"densenet121\", \"fold\": 1, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"ce\", \"objective\": \"ce\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":6252.935077449,"data":"  step 0 loss 4.0126 acc 0.100 0s\n"}
+,{"stream_name":"stdout","time":6307.203316781,"data":"  step 800 loss 0.0337 acc 0.975 269s\n"}
+,{"stream_name":"stdout","time":6325.171532344,"data":"  step 200 loss 0.4713 acc 0.838 73s\n"}
+,{"stream_name":"stdout","time":6374.057360154,"data":"  step 1000 loss 0.0245 acc 1.000 336s\n"}
+,{"stream_name":"stdout","time":6398.750216737,"data":"  step 400 loss 0.1847 acc 0.950 146s\n"}
+,{"stream_name":"stdout","time":6440.691476267,"data":"  step 1199 loss 0.0035 acc 1.000 403s\n"}
+,{"stream_name":"stdout","time":6473.301452806,"data":"  step 600 loss 0.0065 acc 1.000 221s\n"}
+,{"stream_name":"stdout","time":6548.527519619,"data":"  step 800 loss 0.0188 acc 0.988 296s\n"}
+,{"stream_name":"stdout","time":6623.712159878,"data":"  step 1000 loss 0.0031 acc 1.000 371s\n"}
+,{"stream_name":"stdout","time":6698.253321919,"data":"  step 1199 loss 0.0016 acc 1.000 446s\n"}
+,{"stream_name":"stdout","time":6713.497920654,"data":"[gpu0] 15/24 {\"backbone\": \"dinov2_s\", \"fold\": 1, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":6992.579537276,"data":"[gpu1] 12/24 {\"backbone\": \"densenet121\", \"fold\": 1, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":6993.365904733,"data":"  step 0 loss 1.9509 acc 0.675 0s\n"}
+,{"stream_name":"stdout","time":7021.051234457,"data":"[gpu0] 16/24 {\"backbone\": \"dinov2_s\", \"fold\": 1, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":7022.060474845,"data":"  step 0 loss 1.2228 acc 0.650 0s\n"}
+,{"stream_name":"stdout","time":7070.602560118,"data":"  step 200 loss 0.3429 acc 0.925 78s\n"}
+,{"stream_name":"stdout","time":7089.238153898,"data":"  step 200 loss 0.4284 acc 0.875 68s\n"}
+,{"stream_name":"stdout","time":7147.198181576,"data":"  step 400 loss 0.0159 acc 1.000 154s\n"}
+,{"stream_name":"stdout","time":7157.729133489,"data":"  step 400 loss 0.0164 acc 1.000 136s\n"}
+,{"stream_name":"stdout","time":7223.819392503,"data":"  step 600 loss 0.0128 acc 1.000 231s\n"}
+,{"stream_name":"stdout","time":7226.570756801,"data":"  step 600 loss 0.2654 acc 0.950 205s\n"}
+,{"stream_name":"stdout","time":7295.43475347,"data":"  step 800 loss 0.0117 acc 1.000 274s\n"}
+,{"stream_name":"stdout","time":7300.501071654,"data":"  step 800 loss 0.0066 acc 1.000 308s\n"}
+,{"stream_name":"stdout","time":7364.417523037,"data":"  step 1000 loss 0.0750 acc 0.975 343s\n"}
+,{"stream_name":"stdout","time":7377.181113924,"data":"  step 1000 loss 0.1626 acc 0.975 384s\n"}
+,{"stream_name":"stdout","time":7432.766517039,"data":"  step 1199 loss 0.0002 acc 1.000 411s\n"}
+,{"stream_name":"stdout","time":7453.628371857,"data":"  step 1199 loss 0.0002 acc 1.000 461s\n"}
+,{"stream_name":"stdout","time":7717.264099704,"data":"[gpu0] 17/24 {\"backbone\": \"resnet18\", \"fold\": 2, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":7825.494930728,"data":"[gpu1] 13/24 {\"backbone\": \"resnet50\", \"fold\": 1, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"ce\", \"objective\": \"ce\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":7826.44629521,"data":"  step 0 loss 3.6109 acc 0.038 0s\n"}
+,{"stream_name":"stdout","time":7890.153881716,"data":"  step 200 loss 0.3170 acc 0.938 64s\n"}
+,{"stream_name":"stdout","time":7953.416100265,"data":"  step 400 loss 0.0499 acc 0.988 127s\n"}
+,{"stream_name":"stdout","time":7998.189879457,"data":"[gpu0] 18/24 {\"backbone\": \"resnet18\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":7998.559922346,"data":"  step 0 loss 1.3875 acc 0.450 0s\n"}
+,{"stream_name":"stdout","time":8016.722744816,"data":"  step 600 loss 0.0170 acc 0.988 191s\n"}
+,{"stream_name":"stdout","time":8023.63914948,"data":"  step 200 loss 0.6244 acc 0.875 25s\n"}
+,{"stream_name":"stdout","time":8048.936197748,"data":"  step 400 loss 0.0484 acc 0.975 51s\n"}
+,{"stream_name":"stdout","time":8074.49204753,"data":"  step 600 loss 0.0261 acc 1.000 76s\n"}
+,{"stream_name":"stdout","time":8079.749538555,"data":"  step 800 loss 0.0029 acc 1.000 254s\n"}
+,{"stream_name":"stdout","time":8100.198169326,"data":"  step 800 loss 0.0044 acc 1.000 102s\n"}
+,{"stream_name":"stdout","time":8125.978468773,"data":"  step 1000 loss 0.0302 acc 1.000 128s\n"}
+,{"stream_name":"stdout","time":8142.729122999,"data":"  step 1000 loss 0.0048 acc 1.000 317s\n"}
+,{"stream_name":"stdout","time":8151.90158093,"data":"  step 1199 loss 0.0181 acc 1.000 154s\n"}
+,{"stream_name":"stdout","time":8205.511334132,"data":"  step 1199 loss 0.0013 acc 1.000 379s\n"}
+,{"stream_name":"stdout","time":8430.415035768,"data":"[gpu0] 19/24 {\"backbone\": \"densenet121\", \"fold\": 2, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":8449.259833557,"data":"[gpu1] 14/24 {\"backbone\": \"resnet50\", \"fold\": 1, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":8450.204277342,"data":"  step 0 loss 2.0703 acc 0.500 0s\n"}
+,{"stream_name":"stdout","time":8515.55483666,"data":"  step 200 loss 0.2251 acc 0.925 66s\n"}
+,{"stream_name":"stdout","time":8581.300616807,"data":"  step 400 loss 0.0153 acc 1.000 131s\n"}
+,{"stream_name":"stdout","time":8646.425189794,"data":"  step 600 loss 0.1081 acc 0.975 197s\n"}
+,{"stream_name":"stdout","time":8704.515514784,"data":"[gpu0] 20/24 {\"backbone\": \"densenet121\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":8705.13097995,"data":"  step 0 loss 1.5299 acc 0.475 0s\n"}
+,{"stream_name":"stdout","time":8712.237562139,"data":"  step 800 loss 0.0846 acc 0.975 262s\n"}
+,{"stream_name":"stdout","time":8776.665263728,"data":"  step 1000 loss 0.0365 acc 0.975 327s\n"}
+,{"stream_name":"stdout","time":8778.74243648,"data":"  step 200 loss 0.1257 acc 0.950 74s\n"}
+,{"stream_name":"stdout","time":8840.782733334,"data":"  step 1199 loss 0.0002 acc 1.000 391s\n"}
+,{"stream_name":"stdout","time":8853.844496103,"data":"  step 400 loss 0.0207 acc 1.000 149s\n"}
+,{"stream_name":"stdout","time":8933.242478563,"data":"  step 600 loss 0.0394 acc 0.975 229s\n"}
+,{"stream_name":"stdout","time":9012.726484908,"data":"  step 800 loss 0.0103 acc 1.000 308s\n"}
+,{"stream_name":"stdout","time":9093.097392796,"data":"  step 1000 loss 0.0008 acc 1.000 388s\n"}
+,{"stream_name":"stdout","time":9164.94217244,"data":"[gpu1] 15/24 {\"backbone\": \"dinov2_s\", \"fold\": 1, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"ce\", \"objective\": \"ce\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":9165.871350352,"data":"  step 0 loss 4.0611 acc 0.050 0s\n"}
+,{"stream_name":"stdout","time":9172.049803958,"data":"  step 1199 loss 0.0021 acc 1.000 467s\n"}
+,{"stream_name":"stdout","time":9229.301021027,"data":"  step 200 loss 0.3794 acc 0.887 64s\n"}
+,{"stream_name":"stdout","time":9296.752555338,"data":"  step 400 loss 0.0859 acc 0.975 131s\n"}
+,{"stream_name":"stdout","time":9363.480707486,"data":"  step 600 loss 0.0317 acc 0.988 198s\n"}
+,{"stream_name":"stdout","time":9402.789159695,"data":"[gpu0] 21/24 {\"backbone\": \"resnet50\", \"fold\": 2, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":9430.258603695,"data":"  step 800 loss 0.0051 acc 1.000 265s\n"}
+,{"stream_name":"stdout","time":9497.137744922,"data":"  step 1000 loss 0.0008 acc 1.000 332s\n"}
+,{"stream_name":"stdout","time":9563.631963479,"data":"  step 1199 loss 0.0006 acc 1.000 398s\n"}
+,{"stream_name":"stdout","time":9695.414017598,"data":"[gpu0] 22/24 {\"backbone\": \"resnet50\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":9696.592224064,"data":"  step 0 loss 1.6480 acc 0.350 0s\n"}
+,{"stream_name":"stdout","time":9761.753548281,"data":"  step 200 loss 0.2610 acc 0.875 66s\n"}
+,{"stream_name":"stdout","time":9802.766816241,"data":"[gpu1] 16/24 {\"backbone\": \"dinov2_s\", \"fold\": 1, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":9803.739122112,"data":"  step 0 loss 1.9441 acc 0.650 0s\n"}
+,{"stream_name":"stdout","time":9830.054782275,"data":"  step 400 loss 0.0604 acc 0.975 134s\n"}
+,{"stream_name":"stdout","time":9870.555539225,"data":"  step 200 loss 0.5246 acc 0.900 67s\n"}
+,{"stream_name":"stdout","time":9897.500566519,"data":"  step 600 loss 0.0285 acc 0.975 201s\n"}
+,{"stream_name":"stdout","time":9938.757769096,"data":"  step 400 loss 0.0566 acc 0.975 135s\n"}
+,{"stream_name":"stdout","time":9964.258132724,"data":"  step 800 loss 0.0020 acc 1.000 268s\n"}
+,{"stream_name":"stdout","time":10006.831034292,"data":"  step 600 loss 0.0676 acc 0.975 203s\n"}
+,{"stream_name":"stdout","time":10030.036308715,"data":"  step 1000 loss 0.0020 acc 1.000 334s\n"}
+,{"stream_name":"stdout","time":10074.317141678,"data":"  step 800 loss 0.0056 acc 1.000 271s\n"}
+,{"stream_name":"stdout","time":10095.325953084,"data":"  step 1199 loss 0.0087 acc 1.000 399s\n"}
+,{"stream_name":"stdout","time":10141.330744301,"data":"  step 1000 loss 0.0386 acc 1.000 338s\n"}
+,{"stream_name":"stdout","time":10207.821796347,"data":"  step 1199 loss 0.0000 acc 1.000 404s\n"}
+,{"stream_name":"stdout","time":10357.720796225,"data":"[gpu0] 23/24 {\"backbone\": \"dinov2_s\", \"fold\": 2, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":10651.360780175,"data":"[gpu0] 24/24 {\"backbone\": \"dinov2_s\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"proto_mlp\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":10652.46085127,"data":"[gpu1] 17/24 {\"backbone\": \"resnet18\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"ce\", \"objective\": \"ce\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":10652.669908338,"data":"  step 0 loss 1.1688 acc 0.675 0s\n"}
+,{"stream_name":"stdout","time":10652.806816434,"data":"  step 0 loss 4.0755 acc 0.000 0s\n"}
+,{"stream_name":"stdout","time":10678.246782414,"data":"  step 200 loss 0.3891 acc 0.863 26s\n"}
+,{"stream_name":"stdout","time":10703.506300693,"data":"  step 400 loss 0.0870 acc 0.975 51s\n"}
+,{"stream_name":"stdout","time":10723.033289888,"data":"  step 200 loss 0.2065 acc 0.925 71s\n"}
+,{"stream_name":"stdout","time":10728.491795544,"data":"  step 600 loss 0.0479 acc 0.988 76s\n"}
+,{"stream_name":"stdout","time":10753.570339196,"data":"  step 800 loss 0.0085 acc 1.000 101s\n"}
+,{"stream_name":"stdout","time":10778.751911028,"data":"  step 1000 loss 0.0187 acc 1.000 126s\n"}
+,{"stream_name":"stdout","time":10792.827771964,"data":"  step 400 loss 0.0774 acc 0.975 141s\n"}
+,{"stream_name":"stdout","time":10803.746739434,"data":"  step 1199 loss 0.0243 acc 0.988 151s\n"}
+,{"stream_name":"stdout","time":10864.660514561,"data":"  step 600 loss 0.0619 acc 0.975 212s\n"}
+,{"stream_name":"stdout","time":10937.113584622,"data":"  step 800 loss 0.0024 acc 1.000 285s\n"}
+,{"stream_name":"stdout","time":10986.824766502,"data":"[gpu1] 18/24 {\"backbone\": \"resnet18\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":10987.192181077,"data":"  step 0 loss 2.0957 acc 0.450 0s\n"}
+,{"stream_name":"stdout","time":11009.070874242,"data":"  step 1000 loss 0.0002 acc 1.000 357s\n"}
+,{"stream_name":"stdout","time":11012.464476652,"data":"  step 200 loss 0.4553 acc 0.900 25s\n"}
+,{"stream_name":"stdout","time":11038.108698307,"data":"  step 400 loss 0.0129 acc 1.000 51s\n"}
+,{"stream_name":"stdout","time":11063.949797008,"data":"  step 600 loss 0.0697 acc 0.975 77s\n"}
+,{"stream_name":"stdout","time":11079.996172982,"data":"  step 1199 loss 0.0047 acc 1.000 428s\n"}
+,{"stream_name":"stdout","time":11090.16378556,"data":"  step 800 loss 0.0051 acc 1.000 103s\n"}
+,{"stream_name":"stdout","time":11117.064339654,"data":"  step 1000 loss 0.0354 acc 0.975 130s\n"}
+,{"stream_name":"stdout","time":11144.619556232,"data":"  step 1199 loss 0.0041 acc 1.000 158s\n"}
+,{"stream_name":"stdout","time":11395.051518236,"data":"[gpu1] 19/24 {\"backbone\": \"densenet121\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"ce\", \"objective\": \"ce\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":11395.701445629,"data":"  step 0 loss 3.7810 acc 0.050 0s\n"}
+,{"stream_name":"stdout","time":11470.672820308,"data":"  step 200 loss 0.3535 acc 0.875 75s\n"}
+,{"stream_name":"stdout","time":11545.38651376,"data":"  step 400 loss 0.0194 acc 1.000 150s\n"}
+,{"stream_name":"stdout","time":11619.983207482,"data":"  step 600 loss 0.0213 acc 1.000 225s\n"}
+,{"stream_name":"stdout","time":11694.644738444,"data":"  step 800 loss 0.0127 acc 1.000 299s\n"}
+,{"stream_name":"stdout","time":11769.482885904,"data":"  step 1000 loss 0.0077 acc 1.000 374s\n"}
+,{"stream_name":"stdout","time":11843.957341393,"data":"  step 1199 loss 0.0563 acc 0.975 449s\n"}
+,{"stream_name":"stdout","time":12004.186427896,"data":"[gpu1] 20/24 {\"backbone\": \"densenet121\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":12004.766677242,"data":"  step 0 loss 2.3303 acc 0.475 0s\n"}
+,{"stream_name":"stdout","time":12081.459201956,"data":"  step 200 loss 0.2337 acc 0.900 77s\n"}
+,{"stream_name":"stdout","time":12157.938682575,"data":"  step 400 loss 0.0107 acc 1.000 154s\n"}
+,{"stream_name":"stdout","time":12234.281768096,"data":"  step 600 loss 0.0049 acc 1.000 230s\n"}
+,{"stream_name":"stdout","time":12310.672073476,"data":"  step 800 loss 0.0026 acc 1.000 306s\n"}
+,{"stream_name":"stdout","time":12387.188109311,"data":"  step 1000 loss 0.0005 acc 1.000 383s\n"}
+,{"stream_name":"stdout","time":12463.222846082,"data":"  step 1199 loss 0.0024 acc 1.000 459s\n"}
+,{"stream_name":"stdout","time":12711.655523023,"data":"[gpu1] 21/24 {\"backbone\": \"resnet50\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"ce\", \"objective\": \"ce\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":12712.395551171,"data":"  step 0 loss 3.6303 acc 0.062 0s\n"}
+,{"stream_name":"stdout","time":12775.875503534,"data":"  step 200 loss 0.4049 acc 0.863 64s\n"}
+,{"stream_name":"stdout","time":12838.855818315,"data":"  step 400 loss 0.0659 acc 0.988 127s\n"}
+,{"stream_name":"stdout","time":12901.910934808,"data":"  step 600 loss 0.0066 acc 1.000 190s\n"}
+,{"stream_name":"stdout","time":12964.891816904,"data":"  step 800 loss 0.0087 acc 1.000 253s\n"}
+,{"stream_name":"stdout","time":13027.939194808,"data":"  step 1000 loss 0.0034 acc 1.000 316s\n"}
+,{"stream_name":"stdout","time":13090.66786435,"data":"  step 1199 loss 0.0042 acc 1.000 379s\n"}
+,{"stream_name":"stdout","time":13270.750579183,"data":"[gpu1] 22/24 {\"backbone\": \"resnet50\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":13271.493739109,"data":"  step 0 loss 2.4090 acc 0.350 0s\n"}
+,{"stream_name":"stdout","time":13336.384838715,"data":"  step 200 loss 0.2119 acc 0.950 65s\n"}
+,{"stream_name":"stdout","time":13400.859562253,"data":"  step 400 loss 0.0035 acc 1.000 130s\n"}
+,{"stream_name":"stdout","time":13465.270125746,"data":"  step 600 loss 0.0010 acc 1.000 194s\n"}
+,{"stream_name":"stdout","time":13529.592951541,"data":"  step 800 loss 0.0643 acc 0.975 258s\n"}
+,{"stream_name":"stdout","time":13593.911077987,"data":"  step 1000 loss 0.0084 acc 1.000 323s\n"}
+,{"stream_name":"stdout","time":13657.95490564,"data":"  step 1199 loss 0.0249 acc 1.000 387s\n"}
+,{"stream_name":"stdout","time":13889.070277915,"data":"[gpu1] 23/24 {\"backbone\": \"dinov2_s\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"method\": \"ce\", \"objective\": \"ce\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":13890.007159808,"data":"  step 0 loss 3.7667 acc 0.025 0s\n"}
+,{"stream_name":"stdout","time":13958.039905067,"data":"  step 200 loss 0.2591 acc 0.900 68s\n"}
+,{"stream_name":"stdout","time":14025.120583171,"data":"  step 400 loss 0.0121 acc 1.000 135s\n"}
+,{"stream_name":"stdout","time":14091.921995033,"data":"  step 600 loss 0.0062 acc 1.000 202s\n"}
+,{"stream_name":"stdout","time":14158.674389568,"data":"  step 800 loss 0.0148 acc 0.988 269s\n"}
+,{"stream_name":"stdout","time":14225.297483226,"data":"  step 1000 loss 0.0008 acc 1.000 336s\n"}
+,{"stream_name":"stdout","time":14291.581381005,"data":"  step 1199 loss 0.0017 acc 1.000 402s\n"}
+,{"stream_name":"stdout","time":14433.999302055,"data":"[gpu1] 24/24 {\"backbone\": \"dinov2_s\", \"fold\": 2, \"head\": \"mlp\", \"kind\": \"train\", \"margin\": 0.1, \"method\": \"ours\", \"metric\": \"kan\", \"objective\": \"proto\", \"protocol\": \"lodo\"}\n"}
+,{"stream_name":"stdout","time":14434.91532637,"data":"  step 0 loss 1.9029 acc 0.675 0s\n"}
+,{"stream_name":"stdout","time":14503.915794978,"data":"  step 200 loss 0.3091 acc 0.900 69s\n"}
+,{"stream_name":"stdout","time":14572.145507111,"data":"  step 400 loss 0.1401 acc 0.950 138s\n"}
+,{"stream_name":"stdout","time":14640.055573981,"data":"  step 600 loss 0.2313 acc 0.925 205s\n"}
+,{"stream_name":"stdout","time":14707.697586392,"data":"  step 800 loss 0.0053 acc 1.000 273s\n"}
+,{"stream_name":"stdout","time":14774.677044927,"data":"  step 1000 loss 0.0000 acc 1.000 340s\n"}
+,{"stream_name":"stdout","time":14840.956013063,"data":"  step 1199 loss 0.0045 acc 1.000 406s\n"}
+,{"stream_name":"stdout","time":15099.207957776,"data":"finished [0, 0]\n"}
+,{"stream_name":"stderr","time":15101.786589823,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":15101.786620553,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":15102.083542792,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":15102.08357549,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":15102.911917469,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":15103.97085252,"data":"[NbConvertApp] Writing 386360 bytes to __results__.html\n"}
+]
