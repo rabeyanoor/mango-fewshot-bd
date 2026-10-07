@@ -148,6 +148,9 @@ BACKBONES = {
     "densenet121": (224, 1e-4),
     "dinov2_s": (224, 2e-5),
     "dinov2_b": (224, 2e-5),
+    # lightweight CNNs used by earlier mango-variety classifiers
+    "efficientnet_b0": (224, 1e-4),
+    "mobilenet_v2": (224, 1e-4),
 }
 
 
@@ -169,6 +172,11 @@ def make_backbone(name, pretrained=True):
     if name == "densenet121":
         m = tvm.densenet121(weights="IMAGENET1K_V1" if pretrained else None)
         d = m.classifier.in_features
+        m.classifier = nn.Identity()
+        return m, d
+    if name in ("efficientnet_b0", "mobilenet_v2"):
+        m = getattr(tvm, name)(weights="IMAGENET1K_V1" if pretrained else None)
+        d = m.classifier[-1].in_features
         m.classifier = nn.Identity()
         return m, d
     if name == "dinov2_s":
@@ -212,6 +220,26 @@ class EmbeddingNet(nn.Module):
             heads += list(self.metric.parameters())
         return [{"params": self.backbone.parameters(), "lr": self.backbone_lr},
                 {"params": heads, "lr": head_lr}]
+
+
+class FusionNet(nn.Module):
+    """Feature-level fusion of several embedding networks, used for evaluation only.
+
+    The backbone features of the members are L2-normalised and concatenated, so each
+    member contributes equally; the concatenation is both z and f of the fused model.
+    """
+
+    def __init__(self, members):
+        super().__init__()
+        self.members = nn.ModuleList(members)
+        self.res = members[0].res
+        assert all(m.res == self.res for m in members)
+        self.metric = None
+
+    def forward(self, x, return_feat=False):
+        f = torch.cat([F.normalize(m.features(x).float(), dim=1) for m in self.members], 1)
+        z = F.normalize(f, dim=1)
+        return (z, f) if return_feat else z
 
 
 def count_params(m):

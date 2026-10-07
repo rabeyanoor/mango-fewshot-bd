@@ -26,7 +26,8 @@ FIG = os.path.join(ROOT, "figures")
 os.makedirs(FIG, exist_ok=True)
 
 BB_ORDER = ["conv4", "resnet18", "resnet50", "densenet121", "dinov2_s", "dinov2_b"]
-BB_NAME = {"conv4": "Conv-4", "resnet18": "ResNet-18", "resnet50": "ResNet-50",
+BB_NAME = {"efficientnet_b0": "EfficientNet-B0", "mobilenet_v2": "MobileNetV2",
+           "fusion": "Fusion (5 backbones)", "conv4": "Conv-4", "resnet18": "ResNet-18", "resnet50": "ResNet-50",
            "densenet121": "DenseNet-121", "dinov2_s": "DINOv2 ViT-S/14", "dinov2_b": "DINOv2 ViT-B/14"}
 M_ORDER = ["imagenet", "ce", "proto", "proto_mlp", "proto_kanhead", "proto_margin", "kan_metric", "ours",
            "arcface", "supcon", "triplet", "proto_tri", "ours_kanhead"]
@@ -58,7 +59,7 @@ def flat(records):
     """One row per (record, section, rule@shot)."""
     out = []
     for r in records:
-        if r.get("kind") not in ("train", "zeroshot", "reeval"):
+        if r.get("kind") not in ("train", "zeroshot", "reeval", "fusion"):
             continue
         c = {**r.get("cfg", {}), **r["cfg_in"]}
         if c.get("n_episodes", 600) != 600:  # smoke / debug runs
@@ -277,6 +278,40 @@ def table_open(df, lines):
             gg = g[g.shot == "5shot"]
             row.append(f"{100 * gg.closed_acc.mean():.2f}" if not gg.empty else "–")
             lines.append("| " + " | ".join(row) + " |")
+
+
+def table_followup(df, lines):
+    """Background removal (seg), lightweight CNNs and feature fusion; prototypes on f."""
+    d = df[(df.protocol == "unified") & (df.seed == 0) & (df.pretrained == True)]  # noqa: E712
+    if not ((d.variant == "seg").any() or (d.backbone == "fusion").any()):
+        return
+    lines.append("\n## Table 12 – Background removal, lightweight CNNs and feature fusion, %\n")
+    lines.append("Nearest prototype on the backbone feature f; LR = logistic regression on z; cross = "
+                 "5-shot cross-domain episodes (as Table 5); AUROC = 5-shot open set.\n")
+    lines.append("| Backbone | Model | Images | 1-shot | 5-shot | 10-shot | 5-shot LR | cross | AUROC |")
+    lines.append("|---|---|---|---|---|---|---|---|---|")
+
+    def cell(g, sec, rule, shot, col="acc"):
+        g = g[(g.section.str.startswith("x:") if sec == "cross" else g.section == sec)
+              & (g.rule == rule) & (g.shot == shot)]
+        return f"{100 * g[col].mean():.1f}" if g.fold.nunique() == 3 else "–"
+    for b in BB_ORDER[1:] + ["efficientnet_b0", "mobilenet_v2", "fusion"]:
+        for meth in sorted(d[d.backbone == b].method.dropna().unique()):
+            for v in ("crop", "seg"):
+                g = d[(d.backbone == b) & (d.method == meth) & (d.variant == v)]
+                if b != "fusion" and not (d[(d.backbone == b)].variant == "seg").any() and meth != "ce":
+                    continue
+                if b not in ("fusion", "efficientnet_b0", "mobilenet_v2") and meth != "imagenet" \
+                        and not (b == "dinov2_b" and meth == "ce" and v == "crop"):
+                    continue
+                cells = [cell(g, "all", "proto_f", s) for s in ("1shot", "5shot", "10shot")]
+                cells += [cell(g, "all", "logreg_z", "5shot"), cell(g, "cross", "proto_f", "5shot"),
+                          cell(g, "open_set", "open_f", "5shot", "auroc")]
+                if cells[1] == "–":
+                    continue
+                name = M_NAME.get(meth, meth.replace("fusion_", "fusion of 5 backbones, "))
+                lines.append(f"| {BB_NAME[b]} | {name} | {'background removed' if v == 'seg' else 'crop'} | "
+                             + " | ".join(cells) + " |")
 
 
 def table_variants(df, lines):
@@ -549,6 +584,8 @@ def main():
     fig_closed(c)
     table_episode_ft(records, df, lines)
     table_efficiency(records, lines)
+    if not df.empty:
+        table_followup(df, lines)
     with open(os.path.join(OUT, "tables.md"), "w") as f:
         f.write("\n".join(lines) + "\n")
     with open(os.path.join(OUT, "summary.json"), "w") as f:

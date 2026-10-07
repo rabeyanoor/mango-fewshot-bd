@@ -29,6 +29,9 @@ def set_seed(s):
 
 def train_model(cache, cfg, device, train_idx, log_every=200):
     set_seed(cfg["seed"])
+    if device.type == "xla":
+        import torch_xla.core.xla_model as xm
+        xm.set_rng_state(cfg["seed"])
     meta = cache.meta.set_index("idx").loc[train_idx]
     names = sorted(meta.cultivar.unique())
     y_all = meta.cultivar.map({n: i for i, n in enumerate(names)}).to_numpy()
@@ -64,6 +67,9 @@ def train_model(cache, cfg, device, train_idx, log_every=200):
         torch.nn.utils.clip_grad_norm_(model.parameters(), 5.0)
         scaler.step(opt)
         scaler.update()
+        if device.type == "xla":
+            import torch_xla.core.xla_model as xm
+            xm.mark_step()
         if step % log_every == 0 or step == steps - 1:
             hist.append((step, float(loss), float(acc), time.time() - t0))
             print(f"  step {step} loss {float(loss):.4f} acc {float(acc):.3f} {time.time() - t0:.0f}s", flush=True)
@@ -133,7 +139,8 @@ def run_config(cache, cfg, device, save_ckpt=None):
     model, tinfo = train_model(cache, cfg, device, tr)
     res, _ = evaluate_model(model, cache, cfg, device, te, info, tr)
     if save_ckpt:
-        torch.save({k: v.half() if v.is_floating_point() else v for k, v in model.state_dict().items()},
+        torch.save({k: (v.half() if v.is_floating_point() else v).cpu()
+                    for k, v in model.state_dict().items()},
                    save_ckpt)
     return {
         "cfg": {k: (list(v) if isinstance(v, tuple) else v) for k, v in cfg.items()},

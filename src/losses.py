@@ -73,6 +73,8 @@ def proto_loss(z, y, n_support, scale, metric=None, margin=0.0):
     margin > 0 gives the prototype margin loss: the true-class distance is
     inflated by `margin` inside the softmax, so a query must be closer to its
     own prototype than to every other prototype by at least that much."""
+    if z.device.type == "xla":
+        return _proto_loss_static(z, y, n_support, scale, metric, margin)
     classes = y.unique()
     ys, yq, zs, zq = [], [], [], []
     for i, c in enumerate(classes):
@@ -86,6 +88,27 @@ def proto_loss(z, y, n_support, scale, metric=None, margin=0.0):
     acc = (logits.argmax(1) == yq).float().mean()
     if margin > 0:
         logits = logits - scale * margin * F.one_hot(yq, len(classes))
+    return F.cross_entropy(logits, yq), acc
+
+
+def _proto_loss_static(z, y, n_support, scale, metric, margin):
+    """proto_loss with shapes fixed by the P x M batch (no data-dependent indexing),
+    for XLA devices. The support / query split is computed on the host."""
+    yc = y.cpu()
+    classes = yc.unique()
+    sup, qry, yq = [], [], []
+    for i, c in enumerate(classes):
+        idx = (yc == c).nonzero(as_tuple=True)[0]
+        sup.append(idx[:n_support]); qry.append(idx[n_support:]); yq += [i] * (len(idx) - n_support)
+    n_way = len(classes)
+    zs = z[torch.cat(sup).to(z.device)]
+    zq = z[torch.cat(qry).to(z.device)]
+    yq = torch.tensor(yq, device=z.device)
+    protos = zs.view(n_way, n_support, -1).mean(1)
+    logits = -scale * (pdist2(zq, protos) if metric is None else metric(zq, protos))
+    acc = (logits.argmax(1) == yq).float().mean()
+    if margin > 0:
+        logits = logits - scale * margin * F.one_hot(yq, n_way)
     return F.cross_entropy(logits, yq), acc
 
 

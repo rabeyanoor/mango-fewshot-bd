@@ -23,11 +23,13 @@ INPUT = os.environ.get("MANGOFS_INPUT", "/kaggle/input")
 WORK = os.environ.get("MANGOFS_WORK", "/kaggle/working")
 
 
-def find_root():
-    hits = glob.glob(f"{INPUT}/**/meta.csv", recursive=True)
+def find_root(variant="crop"):
+    """Folder of the image cache that holds <variant>.npy next to meta.csv."""
+    hits = [os.path.dirname(p) for p in glob.glob(f"{INPUT}/**/meta.csv", recursive=True)]
+    hits = [h for h in hits if os.path.exists(os.path.join(h, f"{variant}.npy"))] or hits
     if not hits:
         sys.exit(f"image cache (meta.csv) not found in {INPUT}")
-    return os.path.dirname(hits[0])
+    return hits[0]
 
 
 def find_groups():
@@ -68,6 +70,9 @@ METHODS = {
     "ours_kanhead":  dict(objective="proto", head="kan", metric="kan", margin=0.1),
 }
 MAIN = ["ce", "proto", "proto_mlp", "proto_kanhead", "proto_margin", "kan_metric", "ours"]
+# backbones whose features are concatenated in the fusion evaluation (all pretrained ones)
+FUSION = ["resnet18", "resnet50", "densenet121", "dinov2_s", "dinov2_b"]
+LIGHT = ["efficientnet_b0", "mobilenet_v2"]
 EXTRA = ["arcface", "supcon", "triplet", "proto_tri", "ours_kanhead"]
 
 
@@ -116,6 +121,23 @@ def suite(name):
                     for s_ in (1, 2):
                         cfgs.append(m(x, **U, fold=f, backbone=bb, seed=s_))   # seed variance
         return cfgs
+    # follow-up experiments after comparing with other mango-variety pipelines:
+    # background removed (seg.npy, prep_seg.py), lightweight CNNs, feature fusion
+    if name == "seg_zero":  # no training; runs on CPU
+        cfgs = [dict(kind="zeroshot", **U, fold=f, backbone=bb, variant="seg", eval=2)
+                for f in range(3) for bb in FUSION + LIGHT]
+        cfgs += [dict(kind="zeroshot", **U, fold=f, backbone=bb, eval=2)
+                 for f in range(3) for bb in LIGHT]
+        return cfgs
+    if name == "fusion":  # no training; runs on CPU
+        return [dict(kind="fusion", **U, fold=f, members=mb)
+                for mb in ("imagenet", "ce") for f in range(3)]
+    if name == "seg_train":  # GPU
+        return [m(x, **U, fold=f, backbone=bb, variant="seg", eval=2) for f in range(3)
+                for bb in ["resnet18", "densenet121"] for x in ["ce", "proto", "proto_mlp"]]
+    if name == "light_train":  # GPU
+        return [m(x, **U, fold=f, backbone=bb, eval=2) for f in range(3)
+                for bb in LIGHT for x in ["ce", "proto", "proto_mlp"]]
     if name == "lodo_main":
         cfgs = []
         for fold in range(3):
@@ -188,6 +210,55 @@ def reevaluate(ca, ckpt, dev):
             "train": {}, "results": res, "reeval_of": rec["key"], "method": rec["method"]}
 
 
+def load_trained(protocol, fold, backbone, method):
+    """Saved seed-0 crop model of the attached runs (fp16 state dict -> fp32)."""
+    import torch
+    from models import EmbeddingNet
+    rec = next(r for r in input_records() if r.get("kind") == "train" and r.get("ckpt")
+               and r["method"] == method and r["cfg"]["protocol"] == protocol
+               and r["cfg"]["fold"] == fold and r["cfg"]["backbone"] == backbone
+               and r["cfg"].get("seed", 0) == 0 and r["cfg"].get("variant", "crop") == "crop")
+    cfg = rec["cfg"]
+    path = glob.glob(f"{INPUT}/**/ckpt/{rec['ckpt']}", recursive=True)[0]
+    model = EmbeddingNet(cfg["backbone"], cfg["head"], pretrained=False, metric=cfg["metric"])
+    model.load_state_dict({k: v.float() for k, v in torch.load(path, map_location="cpu").items()})
+    return model, rec["ckpt"]
+
+
+def fusion_eval(ca, c, dev):
+    import train as T
+    from data import protocol_split
+    from models import EmbeddingNet, FusionNet, count_params
+    if c["members"] == "imagenet":
+        members, src = [EmbeddingNet(b, "none", True) for b in FUSION], []
+    else:
+        pairs = [load_trained(c["protocol"], c["fold"], b, c["members"]) for b in FUSION]
+        members, src = [p[0] for p in pairs], [p[1] for p in pairs]
+    model = FusionNet(members).to(dev)
+    cfg = {**T.DEFAULTS, **c, "backbone": "fusion", "head": "none", "eval": 2}
+    tr, te, info = protocol_split(ca.meta, cfg["protocol"], cfg["fold"])
+    res, _ = T.evaluate_model(model, ca, cfg, dev, te, info, tr)
+    return {"cfg": cfg, "split": info, "n_train": 0, "n_test": len(te),
+            "params_backbone": count_params(model), "params_head": 0, "train": {},
+            "results": res, "members": FUSION, "ckpts": src,
+            "method": f"fusion_{c['members']}"}
+
+
+def on_tpu():
+    return bool(os.environ.get("TPU_ACCELERATOR_TYPE") or os.environ.get("PJRT_DEVICE") == "TPU")
+
+
+def pick_device():
+    """CUDA if present, else the TPU (torch_xla) of a TPU VM, else CPU."""
+    import torch
+    if torch.cuda.is_available():
+        return torch.device("cuda")
+    if on_tpu():
+        import torch_xla.core.xla_model as xm
+        return xm.xla_device()
+    return torch.device("cpu")
+
+
 def ckey(c):
     return json.dumps(c, sort_keys=True)
 
@@ -197,12 +268,12 @@ def worker(name, shard, n_shards):
     import torch
     from data import Cache
     import train as T
-    dev = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    dev = pick_device()
     cache_by_variant = {}
 
     def cache(variant="crop"):
         if variant not in cache_by_variant:
-            cache_by_variant[variant] = Cache(find_root(), variant, find_groups())
+            cache_by_variant[variant] = Cache(find_root(variant), variant, find_groups())
         return cache_by_variant[variant]
     done = done_keys()
     cfgs = suite(name)
@@ -228,6 +299,8 @@ def worker(name, shard, n_shards):
                 r["ckpt"] = os.path.basename(ck)
             elif kind == "reeval":
                 r = reevaluate(ca, c["ckpt"], dev)
+            elif kind == "fusion":
+                r = fusion_eval(ca, c, dev)
             elif kind == "zeroshot":
                 r = T.run_zero_shot(ca, c, dev)
             elif kind == "episode_ft":
@@ -261,21 +334,30 @@ def worker(name, shard, n_shards):
             out_err = open(f"{WORK}/errors_{shard}.txt", "a")
             out_err.write(key + "\n" + traceback.format_exc() + "\n")
             out_err.close()
-        torch.cuda.empty_cache()
+        if dev.type == "cuda":
+            torch.cuda.empty_cache()
 
 
 def main(name, budget_h=11.0):
     import torch
     n = max(1, torch.cuda.device_count())
-    print("GPUs:", n, "suite:", name, "configs:", len(suite(name)), flush=True)
+    if not torch.cuda.is_available() and on_tpu():
+        n = int(os.environ.get("MANGOFS_TPU_WORKERS", "8"))  # one worker per chip (v5e-8)
+    print("devices:", n, "suite:", name, "configs:", len(suite(name)), flush=True)
     if find_groups() is None:
         build_groups()
     procs = []
     for g in range(n):
         env = dict(os.environ, CUDA_VISIBLE_DEVICES=str(g))
+        if not torch.cuda.is_available() and on_tpu():  # independent single-chip processes
+            env.update(PJRT_DEVICE="TPU", TPU_VISIBLE_CHIPS=str(g), TPU_PROCESS_BOUNDS="1,1,1",
+                       TPU_CHIPS_PER_PROCESS_BOUNDS="1,1,1", TPU_PROCESS_PORT=str(8476 + g),
+                       CLOUD_TPU_TASK_ID="0", TPU_PROCESS_ADDRESSES=f"localhost:{8476 + g}",
+                       TPU_RUNTIME_METRICS_PORTS=str(8431 + g))
         code = f"import sys; sys.path.insert(0, '{os.path.dirname(__file__)}'); import run; run.worker('{name}', {g}, {n})"
         procs.append(subprocess.Popen([sys.executable, "-c", code], env=env))
     deadline = time.time() + budget_h * 3600
+    t_start = time.time()
     while any(p.poll() is None for p in procs):
         if time.time() > deadline:
             print("time budget reached; stopping workers (resume by re-running)", flush=True)
@@ -283,7 +365,13 @@ def main(name, budget_h=11.0):
                 p.terminate()
             break
         time.sleep(30)
-    print("finished", [p.returncode for p in procs])
+    codes = [p.returncode for p in procs]
+    print("finished", codes)
+    if n > 1 and all(codes) and time.time() - t_start < 600 and not torch.cuda.is_available():
+        # one-process-per-chip TPU setup failed at start-up; use one process on chip 0
+        print("all workers failed at start-up; retrying with one worker", flush=True)
+        code = f"import sys; sys.path.insert(0, '{os.path.dirname(__file__)}'); import run; run.worker('{name}', 0, 1)"
+        subprocess.run([sys.executable, "-c", code])
 
 
 def build_groups():
@@ -295,7 +383,7 @@ def build_groups():
     from evaluate import embed
     from models import EmbeddingNet
     ca = Cache(find_root(), "crop", groups_path="/nonexistent")
-    dev = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    dev = pick_device()
     m = EmbeddingNet("dinov2_s", "none", True).to(dev)
     _, feats = embed(m, ca, ca.meta.idx.to_numpy(), dev)
     np.save(f"{WORK}/dinov2_feats.npy", feats.numpy().astype(np.float16))
