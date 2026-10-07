@@ -110,7 +110,6 @@ check("3 cultivar-disjoint folds, every cultivar novel exactly once",
 
 json.dump(checks, open(os.path.join(OUT, "checks.json"), "w"), indent=1)
 
-# ------------------------------------------------------------------ figures
 import matplotlib  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402

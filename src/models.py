@@ -15,12 +15,10 @@ IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)
 
 
-# --------------------------------------------------------------------------
 # Kolmogorov-Arnold layer (B-spline KAN, Liu et al. 2024; vectorised as in
 # the "efficient-kan" formulation).  Each edge i->j carries
 #     phi_ij(x) = w_b * silu(x) + w_s * sum_k c_ijk B_k(x)
 # with cubic B-splines on a uniform grid.
-# --------------------------------------------------------------------------
 class KANLinear(nn.Module):
     def __init__(self, in_features, out_features, grid_size=5, spline_order=3,
                  grid_range=(-2.0, 2.0), scale_noise=0.1):
@@ -122,9 +120,7 @@ def make_head(kind, d_in, d_hidden=256, d_out=128):
     raise ValueError(kind)
 
 
-# --------------------------------------------------------------------------
 # Backbones
-# --------------------------------------------------------------------------
 class Conv4(nn.Module):
     """The original Prototypical-Network encoder (Snell et al. 2017)."""
 

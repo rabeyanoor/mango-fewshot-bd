@@ -49,7 +49,6 @@ def done_keys():
     return keys
 
 
-# ---------------------------------------------------------------- suites
 BACKBONES = ["conv4", "resnet18", "resnet50", "densenet121", "dinov2_s"]
 
 # Named methods.  Everything that is not the proposed method is a baseline
@@ -263,7 +262,6 @@ def ckey(c):
     return json.dumps(c, sort_keys=True)
 
 
-# ---------------------------------------------------------------- worker
 def worker(name, shard, n_shards):
     import torch
     from data import Cache

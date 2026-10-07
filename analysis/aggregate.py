@@ -43,7 +43,6 @@ COLOR = {"ours": "#2a78d6", "proto_mlp": "#eb6834", "kan_metric": "#1baf7a", "pr
 INK, INK2, GRID = "#0b0b0b", "#52514e", "#e4e3df"
 
 
-# ------------------------------------------------------------------ load
 def load(res_dir):
     rows = []
     for p in sorted(glob.glob(os.path.join(res_dir, "**", "results*.jsonl"), recursive=True)):
@@ -109,7 +108,6 @@ def fmt(m, h, n=None, n_req=3):
     return s + ("" if n is None or n >= n_req else f" ({n}f)")
 
 
-# --------------------------------------------------------------- stats
 def wilcoxon_holm(pairs):
     """pairs: {label: (a_list, b_list)} -> {label: (p_holm, mean_diff)}"""
     from scipy.stats import wilcoxon
@@ -136,7 +134,6 @@ def episodes(df, method, bb, shot, section="all", rule="proto_z", protocol="unif
     return sum((list(x) for x in g[key]), [])
 
 
-# --------------------------------------------------------------- tables
 def table_main(df, lines, summary, rule="proto_z"):
     d = default_cfg(df)
     d = d[(d.protocol == "unified") & (d.section == "all") & (d.rule == rule)]
@@ -438,7 +435,6 @@ def table_dataset(lines, meta_path, group_paths=()):
     lines.append(pv.to_markdown())
 
 
-# --------------------------------------------------------------- figures
 def _style(ax):
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)

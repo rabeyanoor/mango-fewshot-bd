@@ -20,7 +20,6 @@ def pdist2(a, b):
     return (a.pow(2).sum(1, keepdim=True) - 2 * a @ b.t() + b.pow(2).sum(1).unsqueeze(0)).clamp_min(0)
 
 
-# ---------------------------------------------------------------- triplet
 def triplet_loss(z, y, margin=0.2, mining="batch_hard", cutoff=0.5):
     """z: L2-normalised embeddings (B, d); y: (B,) labels."""
     d = pdist2(z, z).clamp_min(1e-12).sqrt()
@@ -60,7 +59,6 @@ def triplet_loss(z, y, margin=0.2, mining="batch_hard", cutoff=0.5):
     return F.relu(d_ap - d_an.gather(1, neg[:, None]).squeeze(1) + margin).mean()
 
 
-# ------------------------------------------------------------------ proto
 def proto_logits(zs, ys, zq, n_way, scale, metric=None):
     protos = torch.stack([zs[ys == c].mean(0) for c in range(n_way)])
     d = pdist2(zq, protos) if metric is None else metric(zq, protos)
@@ -112,7 +110,6 @@ def _proto_loss_static(z, y, n_support, scale, metric, margin):
     return F.cross_entropy(logits, yq), acc
 
 
-# ----------------------------------------------------------------- supcon
 def supcon_loss(z, y, t=0.1):
     sim = z @ z.t() / t
     eye = torch.eye(len(y), dtype=torch.bool, device=z.device)
@@ -122,7 +119,6 @@ def supcon_loss(z, y, t=0.1):
     return -(logp.masked_fill(~pos, 0).sum(1) / pos.sum(1).clamp_min(1)).mean()
 
 
-# ------------------------------------------------------- classifier heads
 class CosineClassifier(nn.Module):
     def __init__(self, d, n_classes, scale=16.0, margin=0.0):
         super().__init__()

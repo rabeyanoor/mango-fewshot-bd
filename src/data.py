@@ -10,7 +10,6 @@ import torch.nn.functional as F
 DATASETS = ["MangoImageBD", "MangoClassify12", "Mangifera2012"]
 
 
-# ------------------------------------------------------------------ cache
 class Cache:
     """uint8 image array (N,S,S,3) kept in RAM + metadata dataframe."""
 
@@ -31,7 +30,6 @@ class Cache:
         return x.permute(0, 3, 1, 2).float().div_(255)
 
 
-# --------------------------------------------------------------- grouping
 class UnionFind:
     def __init__(self, n):
         self.p = list(range(n))
@@ -145,7 +143,6 @@ def build_groups(meta, feats=None, seq_gap_s=10, dup_cos=0.97, xlabel_dup_cos=0.
     return group, drop, stats
 
 
-# ---------------------------------------------------------------- splits
 def cultivar_folds(meta, n_folds=3, seed=0):
     """Assign every cultivar to exactly one novel fold.
 
@@ -194,7 +191,6 @@ def protocol_split(meta, protocol, fold, seed=0):
     return train.idx.to_numpy(), test.idx.to_numpy(), info
 
 
-# --------------------------------------------------------------- samplers
 class PKSampler:
     """P classes x M images per batch, class-balanced (images drawn uniformly within a class)."""
 
@@ -266,7 +262,6 @@ def eligible_classes(labels, groups, k_shot, n_query, min_query=5):
     return np.array(out)
 
 
-# ----------------------------------------------------------- augmentation
 def gpu_augment(x, out_res, scale=(0.45, 1.0), max_rot=25, jitter=0.15, train=True):
     """Per-sample random resized crop + flip + rotation + mild colour jitter.
 

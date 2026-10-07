@@ -21,7 +21,6 @@ from models import KANLinear, KANMetric, KANHead, MLPHead  # noqa: E402
 from prep_data import canon  # noqa: E402
 
 
-# ---------------------------------------------------------------- fixtures
 def fake_meta(n_per=30, seed=0):
     rng = np.random.default_rng(seed)
     rows = []
@@ -40,7 +39,6 @@ def fake_meta(n_per=30, seed=0):
     return m
 
 
-# ------------------------------------------------------------------ names
 @pytest.mark.parametrize("raw,expected", [
     ("Amrapali-252", "Amrapali"), ("Bari-7-176", "Bari7"), ("Bari 4", "Bari4"), ("Bari-4", "Bari4"),
     ("Fazlee-156", "Fazli"), ("Fazli Classic", "Fazli"), ("Himsagor", "Himsagar"),
@@ -55,7 +53,6 @@ def test_unknown_name_fails_loudly():
         canon("NotAMango")
 
 
-# ----------------------------------------------------------------- splits
 def test_unified_folds_partition_cultivars():
     m = fake_meta()
     folds = cultivar_folds(m, 3)
@@ -83,7 +80,6 @@ def test_dropped_images_excluded():
     assert not set(range(10)) & (set(tr) | set(te))
 
 
-# --------------------------------------------------------------- episodes
 def test_episode_support_query_group_disjoint():
     m = fake_meta()
     labels = m.cultivar.astype("category").cat.codes.to_numpy()
@@ -122,7 +118,6 @@ def test_grouping_links_near_duplicates_and_drops_cross_label():
     assert stats["cross_label_dups"] >= 1
 
 
-# ------------------------------------------------------------------- KAN
 def test_kan_spline_partition_of_unity():
     layer = KANLinear(3, 2, grid_size=5, grid_range=(-2, 2))
     x = torch.linspace(-1.99, 1.99, 50).unsqueeze(1).repeat(1, 3)
@@ -149,7 +144,6 @@ def test_kan_metric_and_heads_get_gradients():
         assert all(p.grad is not None for p in mod.parameters() if p.requires_grad)
 
 
-# ----------------------------------------------------------------- losses
 def test_proto_margin_increases_loss():
     torch.manual_seed(0)
     z = F.normalize(torch.randn(40, 16), dim=1)
@@ -186,7 +180,6 @@ def test_objective_uses_model_metric():
     assert torch.isfinite(loss)
 
 
-# ------------------------------------------------------------------ eval
 def test_auroc_matches_definition():
     rng = np.random.default_rng(0)
     pos, neg = rng.normal(1, 1, 200), rng.normal(0, 1, 300)

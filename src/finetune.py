@@ -83,7 +83,6 @@ def episode_finetune(cache, test_idx, base_model, device, shots=(1, 5), n_episod
     return out
 
 
-# ------------------------------------------------------------ closed set
 def group_holdout(meta, frac=0.3, seed=0, naive=False):
     """Per-cultivar split; whole capture groups go to test until ~frac."""
     rng = np.random.default_rng(seed)
