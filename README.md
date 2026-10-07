@@ -46,6 +46,13 @@ The repository contains:
   the features on the unlabelled test photos of each source recovers up to 4.4
   points. Cultivars that appear in several source datasets are the hardest to
   recognise.
+- **Fusing backbones helps a little; removing the background does not.**
+  Concatenating the backbone features of five models trained with
+  cross-entropy gives the best accuracy of the study (85.0% in 5-shot tasks,
+  86.3% with logistic regression, 90.2% with 10 shots), about one point above
+  the best single model, but not across source datasets. Removing the
+  background with U²-Net lowers accuracy for all seven backbones tested.
+  EfficientNet-B0 and MobileNetV2 are as good as the ResNets without training.
 - **A larger backbone adds little.** DINOv2 ViT-B/14 is at most one point
   more accurate than ViT-S/14, with four times the parameters.
 - **The differences are not seed noise.** Over three training seeds the
@@ -157,10 +164,12 @@ src/                library; copied unchanged into every Kaggle kernel
   finetune.py         per-episode and closed-set fine-tuning
   efficiency.py       parameters, GMACs, latency
   export.py           package the benchmark as a zip archive
-  run.py              experiment suites; resumable driver over 2 GPUs
+  prep_seg.py         background-removed variant of the image cache (U²-Net)
+  run.py              experiment suites; resumable driver over 2 GPUs or a TPU VM
 tools/
   build_groups.py     build capture groups from metadata and DINOv2 embeddings
   verify_benchmark.py independent checks of the benchmark
+  quality_audit.py    image-quality audit (blur, exposure, rotated or mirrored copies)
 analysis/
   aggregate.py        result files -> results/tables.md and figures
   kan_curves.py       plot the learned KAN metric functions of a checkpoint
@@ -200,7 +209,10 @@ To re-run the experiments:
    In section 5, set `SUITE` to one of the suites below, uncomment
    `run.main(SUITE)` and run the notebook.
    The suites `closed_set` and `improve` reuse saved models, so add the
-   outputs of `lodo_main` (and of `unified_main` for `improve`) as inputs too.
+   outputs of `lodo_main` (and of `unified_main` for `improve`) as inputs too;
+   `fusion` needs the outputs of `unified_main` and `improve`. For `seg_zero`,
+   first run `import prep_seg; prep_seg.main()` in a CPU notebook with the
+   image cache attached and add its output (`seg.npy`) as input.
 
 | Suite | What it runs |
 |---|---|
@@ -212,6 +224,8 @@ To re-run the experiments:
 | `efficiency` | parameters and latency |
 | `ablations` | seeds and full-frame images |
 | `improve` | backbone-feature and source-centred rules on saved models; DINOv2 ViT-B/14 |
+| `seg_zero` | pretrained features on background-removed images; EfficientNet-B0, MobileNetV2 (CPU) |
+| `fusion` | concatenated features of five backbones, pretrained and CE-trained (CPU) |
 
 Each suite writes one JSON line per trained model to
 `results_<suite>_<gpu>.jsonl`. Copy these files to `results/kaggle/<suite>/`

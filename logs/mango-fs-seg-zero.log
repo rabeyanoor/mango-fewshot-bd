@@ -1,0 +1,47 @@
+[{"stream_name":"stdout","time":6.247407931,"data":"devices: 1 suite: seg_zero configs: 27\n"}
+,{"stream_name":"stdout","time":9.477473172,"data":"[gpu0] 1/27 {\"backbone\": \"resnet18\", \"eval\": 2, \"fold\": 0, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":16.675410993,"data":"Downloading: \"https://download.pytorch.org/models/resnet18-f37072fd.pth\" to /root/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth\n"}
+,{"stream_name":"stderr","time":16.941108442,"data":"\r  0%|          | 0.00/44.7M [00:00\u003c?, ?B/s]\r 19%|█▉        | 8.38M/44.7M [00:00\u003c00:00, 87.5MB/s]\r 67%|██████▋   | 30.0M/44.7M [00:00\u003c00:00, 169MB/s] \r100%|██████████| 44.7M/44.7M [00:00\u003c00:00, 177MB/s]\n"}
+,{"stream_name":"stdout","time":471.166159171,"data":"[gpu0] 2/27 {\"backbone\": \"resnet50\", \"eval\": 2, \"fold\": 0, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":471.557511322,"data":"Downloading: \"https://download.pytorch.org/models/resnet50-11ad3fa6.pth\" to /root/.cache/torch/hub/checkpoints/resnet50-11ad3fa6.pth\n"}
+,{"stream_name":"stderr","time":472.104087948,"data":"\r  0%|          | 0.00/97.8M [00:00\u003c?, ?B/s]\r  9%|▉         | 8.62M/97.8M [00:00\u003c00:01, 90.1MB/s]\r 29%|██▊       | 27.9M/97.8M [00:00\u003c00:00, 156MB/s] \r 48%|████▊     | 47.0M/97.8M [00:00\u003c00:00, 176MB/s]\r 69%|██████▉   | 67.8M/97.8M [00:00\u003c00:00, 192MB/s]\r 90%|█████████ | 88.2M/97.8M [00:00\u003c00:00, 200MB/s]\r100%|██████████| 97.8M/97.8M [00:00\u003c00:00, 188MB/s]\n"}
+,{"stream_name":"stdout","time":1330.640108271,"data":"[gpu0] 3/27 {\"backbone\": \"densenet121\", \"eval\": 2, \"fold\": 0, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":1330.840159625,"data":"Downloading: \"https://download.pytorch.org/models/densenet121-a639ec97.pth\" to /root/.cache/torch/hub/checkpoints/densenet121-a639ec97.pth\n"}
+,{"stream_name":"stderr","time":1331.036878511,"data":"\r  0%|          | 0.00/30.8M [00:00\u003c?, ?B/s]\r 31%|███       | 9.62M/30.8M [00:00\u003c00:00, 100MB/s]\r100%|██████████| 30.8M/30.8M [00:00\u003c00:00, 165MB/s]\n"}
+,{"stream_name":"stdout","time":2170.923374759,"data":"[gpu0] 4/27 {\"backbone\": \"dinov2_s\", \"eval\": 2, \"fold\": 0, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stderr","time":2176.200910548,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":3152.376214126,"data":"[gpu0] 5/27 {\"backbone\": \"dinov2_b\", \"eval\": 2, \"fold\": 0, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":5821.613257977,"data":"[gpu0] 6/27 {\"backbone\": \"efficientnet_b0\", \"eval\": 2, \"fold\": 0, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":5821.869581229,"data":"Downloading: \"https://download.pytorch.org/models/efficientnet_b0_rwightman-7f5810bc.pth\" to /root/.cache/torch/hub/checkpoints/efficientnet_b0_rwightman-7f5810bc.pth\n"}
+,{"stream_name":"stderr","time":5822.048312426,"data":"\r  0%|          | 0.00/20.5M [00:00\u003c?, ?B/s]\r 37%|███▋      | 7.62M/20.5M [00:00\u003c00:00, 79.7MB/s]\r100%|██████████| 20.5M/20.5M [00:00\u003c00:00, 120MB/s] \n"}
+,{"stream_name":"stdout","time":6236.238654005,"data":"[gpu0] 7/27 {\"backbone\": \"mobilenet_v2\", \"eval\": 2, \"fold\": 0, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":6236.562622083,"data":"Downloading: \"https://download.pytorch.org/models/mobilenet_v2-b0353104.pth\" to /root/.cache/torch/hub/checkpoints/mobilenet_v2-b0353104.pth\n"}
+,{"stream_name":"stderr","time":6236.68649412,"data":"\r  0%|          | 0.00/13.6M [00:00\u003c?, ?B/s]\r 66%|██████▋   | 9.00M/13.6M [00:00\u003c00:00, 94.3MB/s]\r100%|██████████| 13.6M/13.6M [00:00\u003c00:00, 116MB/s] \n"}
+,{"stream_name":"stdout","time":6630.420137483,"data":"[gpu0] 8/27 {\"backbone\": \"resnet18\", \"eval\": 2, \"fold\": 1, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":7055.66567643,"data":"[gpu0] 9/27 {\"backbone\": \"resnet50\", \"eval\": 2, \"fold\": 1, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":7907.841591364,"data":"[gpu0] 10/27 {\"backbone\": \"densenet121\", \"eval\": 2, \"fold\": 1, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":8722.439790343,"data":"[gpu0] 11/27 {\"backbone\": \"dinov2_s\", \"eval\": 2, \"fold\": 1, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":9623.16610137,"data":"[gpu0] 12/27 {\"backbone\": \"dinov2_b\", \"eval\": 2, \"fold\": 1, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":12027.814668792,"data":"[gpu0] 13/27 {\"backbone\": \"efficientnet_b0\", \"eval\": 2, \"fold\": 1, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":12402.512650594,"data":"[gpu0] 14/27 {\"backbone\": \"mobilenet_v2\", \"eval\": 2, \"fold\": 1, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":12797.573766446,"data":"[gpu0] 15/27 {\"backbone\": \"resnet18\", \"eval\": 2, \"fold\": 2, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":13215.933436175,"data":"[gpu0] 16/27 {\"backbone\": \"resnet50\", \"eval\": 2, \"fold\": 2, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":14008.274494608,"data":"[gpu0] 17/27 {\"backbone\": \"densenet121\", \"eval\": 2, \"fold\": 2, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":14795.144341399,"data":"[gpu0] 18/27 {\"backbone\": \"dinov2_s\", \"eval\": 2, \"fold\": 2, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":15710.147627376,"data":"[gpu0] 19/27 {\"backbone\": \"dinov2_b\", \"eval\": 2, \"fold\": 2, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":18170.749235732,"data":"[gpu0] 20/27 {\"backbone\": \"efficientnet_b0\", \"eval\": 2, \"fold\": 2, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":18540.67044697,"data":"[gpu0] 21/27 {\"backbone\": \"mobilenet_v2\", \"eval\": 2, \"fold\": 2, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\", \"variant\": \"seg\"}\n"}
+,{"stream_name":"stdout","time":18898.883610888,"data":"[gpu0] 22/27 {\"backbone\": \"efficientnet_b0\", \"eval\": 2, \"fold\": 0, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\"}\n"}
+,{"stream_name":"stdout","time":19340.324098955,"data":"[gpu0] 23/27 {\"backbone\": \"mobilenet_v2\", \"eval\": 2, \"fold\": 0, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\"}\n"}
+,{"stream_name":"stdout","time":19729.686491524,"data":"[gpu0] 24/27 {\"backbone\": \"efficientnet_b0\", \"eval\": 2, \"fold\": 1, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\"}\n"}
+,{"stream_name":"stdout","time":20120.938660635,"data":"[gpu0] 25/27 {\"backbone\": \"mobilenet_v2\", \"eval\": 2, \"fold\": 1, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\"}\n"}
+,{"stream_name":"stdout","time":20477.360292455,"data":"[gpu0] 26/27 {\"backbone\": \"efficientnet_b0\", \"eval\": 2, \"fold\": 2, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\"}\n"}
+,{"stream_name":"stdout","time":20854.742238096,"data":"[gpu0] 27/27 {\"backbone\": \"mobilenet_v2\", \"eval\": 2, \"fold\": 2, \"kind\": \"zeroshot\", \"method\": null, \"protocol\": \"unified\"}\n"}
+,{"stream_name":"stdout","time":21216.447771587,"data":"finished [0]\n"}
+,{"stream_name":"stderr","time":21220.528910249,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":21220.528952097,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":21220.952968471,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":21220.952999265,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":21222.721604366,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":21223.973441465,"data":"[NbConvertApp] Writing 404252 bytes to __results__.html\n"}
+]

@@ -1,6 +1,6 @@
 # MangoFS-BD – results
 
-_415 result records from `results/kaggle`._
+_448 result records from `results/kaggle`._
 
 
 ## Table 0 – The unified MangoFS-BD benchmark (images / capture groups)
@@ -415,3 +415,27 @@ ImageNet backbone + fresh classifier fine-tuned on each support set for 100 step
 | dinov2_b    | mlp    | euclid   |              85.725 |           0.232 |             0     |  21.944 |      10.026 |       95.193 |     287.774 |               737.802 |          nan     |
 | dinov2_b    | kan    | euclid   |              85.725 |           2.296 |             0     |  21.946 |      11.54  |       95.953 |     292.096 |               743.582 |          nan     |
 | dinov2_b    | mlp    | kan      |              85.725 |           0.232 |             0.001 |  21.944 |      11.394 |       95.442 |     285.042 |               737.813 |            0.789 |
+
+## Table 12 – Background removal, lightweight CNNs and feature fusion, %
+
+Nearest prototype on the backbone feature f; LR = logistic regression on z; cross = 5-shot cross-domain episodes (as Table 5); AUROC = 5-shot open set.
+
+| Backbone | Model | Images | 1-shot | 5-shot | 10-shot | 5-shot LR | cross | AUROC |
+|---|---|---|---|---|---|---|---|---|
+| ResNet-18 | ImageNet features (no training) | crop | 63.3 | 75.3 | 79.1 | 77.5 | 50.1 | 75.5 |
+| ResNet-18 | ImageNet features (no training) | background removed | 60.2 | 73.3 | 77.5 | 75.6 | 50.9 | 72.8 |
+| ResNet-50 | ImageNet features (no training) | crop | 63.5 | 75.0 | 78.3 | 78.2 | 59.2 | 75.3 |
+| ResNet-50 | ImageNet features (no training) | background removed | 60.1 | 72.3 | 76.0 | 75.7 | 57.7 | 73.5 |
+| DenseNet-121 | ImageNet features (no training) | crop | 62.1 | 74.7 | 78.5 | 77.9 | 62.1 | 75.0 |
+| DenseNet-121 | ImageNet features (no training) | background removed | 58.8 | 72.3 | 76.3 | 75.3 | 63.4 | 71.9 |
+| DINOv2 ViT-S/14 | ImageNet features (no training) | crop | 63.9 | 79.4 | 83.9 | 81.7 | 66.0 | 77.7 |
+| DINOv2 ViT-S/14 | ImageNet features (no training) | background removed | 59.8 | 76.1 | 81.2 | 79.1 | 65.6 | 75.0 |
+| DINOv2 ViT-B/14 | Fine-tuned CE (cosine) | crop | 74.8 | 84.0 | 86.7 | 79.2 | 64.4 | 85.7 |
+| DINOv2 ViT-B/14 | ImageNet features (no training) | crop | 64.4 | 79.1 | 83.2 | 82.2 | 64.5 | 79.0 |
+| DINOv2 ViT-B/14 | ImageNet features (no training) | background removed | 62.1 | 76.8 | 81.3 | 80.1 | 64.5 | 77.4 |
+| EfficientNet-B0 | ImageNet features (no training) | crop | 62.8 | 75.9 | 79.6 | 78.8 | 57.0 | 75.0 |
+| EfficientNet-B0 | ImageNet features (no training) | background removed | 59.5 | 74.2 | 78.6 | 77.4 | 62.2 | 73.5 |
+| MobileNetV2 | ImageNet features (no training) | crop | 64.0 | 76.1 | 79.8 | 78.8 | 52.6 | 77.0 |
+| MobileNetV2 | ImageNet features (no training) | background removed | 60.4 | 73.7 | 78.2 | 76.6 | 52.4 | 74.3 |
+| Fusion (5 backbones) | fusion of 5 backbones, ce | crop | 76.1 | 85.0 | 87.6 | 86.3 | 63.5 | 85.9 |
+| Fusion (5 backbones) | fusion of 5 backbones, imagenet | crop | 69.7 | 81.7 | 85.1 | 84.3 | 63.5 | 81.1 |

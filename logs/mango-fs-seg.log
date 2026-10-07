@@ -1,0 +1,51 @@
+[{"stream_name":"stdout","time":7.999462586,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 61.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.276380599,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.6/23.6 MB 69.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.354345757,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.3/56.3 kB 2.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.552233972,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.7/13.7 MB 85.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.633359475,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 2.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":8.742392524,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 77.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":9.36937859,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.7/59.7 MB 31.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stderr","time":27.112348399,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":27.112384894,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":27.112391585,"data":"ydata-profiling 4.18.4 requires numba\u003c0.63,\u003e=0.60, but you have numba 0.68.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":27.112397128,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.5.3 which is incompatible.\n"}
+,{"stream_name":"stderr","time":27.11240269,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":27.11240749,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 2.3.3 which is incompatible.\n"}
+,{"stream_name":"stderr","time":27.112412264,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":27.112417411,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":27.112422659,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":27.112427784,"data":"pytensor 2.38.3 requires numba\u003c=0.65.1,\u003e=0.58, but you have numba 0.68.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":92.305676788,"data":"Downloading data from 'https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net.onnx' to file '/tmp/u2net/models/u2net/u2net.onnx'.\n"}
+,{"stream_name":"stderr","time":96.084843404,"data":"\r  0%|                                               | 0.00/176M [00:00\u003c?, ?B/s]\r  0%|                                       | 295k/176M [00:00\u003c01:02, 2.80MB/s]\r  2%|▌                                     | 2.66M/176M [00:00\u003c00:11, 14.8MB/s]\r  4%|█▎                                    | 6.34M/176M [00:00\u003c00:06, 24.7MB/s]\r  7%|██▊                                   | 12.7M/176M [00:00\u003c00:04, 40.1MB/s]\r 11%|████▏                                 | 19.2M/176M [00:00\u003c00:03, 49.0MB/s]\r 15%|█████▌                                | 25.7M/176M [00:00\u003c00:02, 54.5MB/s]\r 18%|██████▉                               | 32.2M/176M [00:00\u003c00:02, 57.6MB/s]\r 22%|████████▎                             | 38.7M/176M [00:00\u003c00:02, 60.1MB/s]\r 26%|█████████▊                            | 45.2M/176M [00:00\u003c00:02, 61.8MB/s]\r 29%|███████████▏                          | 51.6M/176M [00:01\u003c00:01, 62.5MB/s]\r 33%|████████████▌                         | 58.1M/176M [00:01\u003c00:01, 63.2MB/s]\r 37%|█████████████▉                        | 64.6M/176M [00:01\u003c00:01, 63.8MB/s]\r 40%|███████████████▍                      | 71.2M/176M [00:01\u003c00:01, 64.4MB/s]\r 44%|████████████████▊                     | 77.8M/176M [00:01\u003c00:01, 64.7MB/s]\r 48%|██████████████████▏                   | 84.4M/176M [00:01\u003c00:01, 65.1MB/s]\r 52%|███████████████████▌                  | 90.9M/176M [00:01\u003c00:01, 64.9MB/s]\r 55%|█████████████████████                 | 97.4M/176M [00:01\u003c00:01, 65.0MB/s]\r 59%|███████████████████████                | 104M/176M [00:01\u003c00:01, 65.4MB/s]\r 63%|████████████████████████▌              | 111M/176M [00:01\u003c00:01, 65.3MB/s]\r 67%|█████████████████████████▉             | 117M/176M [00:02\u003c00:00, 65.1MB/s]\r 70%|███████████████████████████▍           | 124M/176M [00:02\u003c00:00, 65.3MB/s]\r 74%|████████████████████████████▉          | 130M/176M [00:02\u003c00:00, 65.7MB/s]\r 78%|██████████████████████████████▍        | 137M/176M [00:02\u003c00:00, 66.1MB/s]\r 82%|███████████████████████████████▊       | 144M/176M [00:02\u003c00:00, 66.1MB/s]\r 85%|█████████████████████████████████▎     | 150M/176M [00:02\u003c00:00, 66.2MB/s]\r 89%|██████████████████████████████████▊    | 157M/176M [00:02\u003c00:00, 66.3MB/s]\r 93%|████████████████████████████████████▎  | 164M/176M [00:02\u003c00:00, 65.9MB/s]\r 97%|█████████████████████████████████████▋ | 170M/176M [00:02\u003c00:00, 62.6MB/s]\r  0%|                                               | 0.00/176M [00:00\u003c?, ?B/s]\r100%|████████████████████████████████████████| 176M/176M [00:00\u003c00:00, 636GB/s]\n"}
+,{"stream_name":"stdout","time":99.175119741,"data":"0/11615 2s\n"}
+,{"stream_name":"stdout","time":783.690081841,"data":"500/11615 686s\n"}
+,{"stream_name":"stdout","time":1373.973144349,"data":"1000/11615 1277s\n"}
+,{"stream_name":"stdout","time":2006.380043898,"data":"1500/11615 1909s\n"}
+,{"stream_name":"stdout","time":2663.386259922,"data":"2000/11615 2566s\n"}
+,{"stream_name":"stdout","time":3266.032458855,"data":"2500/11615 3169s\n"}
+,{"stream_name":"stdout","time":3947.735384954,"data":"3000/11615 3850s\n"}
+,{"stream_name":"stdout","time":4644.018349924,"data":"3500/11615 4547s\n"}
+,{"stream_name":"stdout","time":5306.151277997,"data":"4000/11615 5209s\n"}
+,{"stream_name":"stdout","time":5978.313610569,"data":"4500/11615 5881s\n"}
+,{"stream_name":"stdout","time":6627.965442156,"data":"5000/11615 6531s\n"}
+,{"stream_name":"stdout","time":7311.644680658,"data":"5500/11615 7214s\n"}
+,{"stream_name":"stdout","time":7941.79202193,"data":"6000/11615 7844s\n"}
+,{"stream_name":"stdout","time":8578.404156551,"data":"6500/11615 8481s\n"}
+,{"stream_name":"stdout","time":9228.076878685,"data":"7000/11615 9131s\n"}
+,{"stream_name":"stdout","time":9830.364006318,"data":"7500/11615 9733s\n"}
+,{"stream_name":"stdout","time":10496.580017544,"data":"8000/11615 10399s\n"}
+,{"stream_name":"stdout","time":11146.538157737,"data":"8500/11615 11049s\n"}
+,{"stream_name":"stdout","time":11810.725832313,"data":"9000/11615 11713s\n"}
+,{"stream_name":"stdout","time":12496.958600469,"data":"9500/11615 12400s\n"}
+,{"stream_name":"stdout","time":13178.192794044,"data":"10000/11615 13081s\n"}
+,{"stream_name":"stdout","time":13899.650559628,"data":"10500/11615 13802s\n"}
+,{"stream_name":"stdout","time":14578.832110516,"data":"11000/11615 14482s\n"}
+,{"stream_name":"stdout","time":15209.607113744,"data":"11500/11615 15112s\n"}
+,{"stream_name":"stdout","time":15346.062073969,"data":"done: 11615 images, fallback 2 median mask fraction 0.4794\n"}
+,{"stream_name":"stderr","time":15351.724297918,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":15351.724342406,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":15352.096353894,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":15352.096430009,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":15353.285178516,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":15354.662865491,"data":"[NbConvertApp] Writing 401317 bytes to __results__.html\n"}
+]
