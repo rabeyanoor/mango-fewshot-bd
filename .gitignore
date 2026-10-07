@@ -6,3 +6,4 @@ figures/fig_kan_metric_unified*
 *.npy
 *.pt
 results/summary.json
+src/

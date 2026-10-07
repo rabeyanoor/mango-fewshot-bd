@@ -86,10 +86,10 @@ No new images were collected. Three public datasets (CC BY 4.0) are merged:
 | [Mangifera2012](https://data.mendeley.com/datasets/w5jg84txj8) | 10 | 2,012 | iPhone 14 Pro Max, EXIF timestamps |
 | **Merged** | **24** | **11,613** | cultivar names harmonised; one cross-label near-duplicate pair removed |
 
-- **Preprocessing** (`src/preprocess.py`): trim padding bars, crop a square
+- **Preprocessing** (`preprocess.py` in the notebook): trim padding bars, crop a square
   around the fruit (the most fruit-like saturated blob), resize to 288×288. A
   full-frame variant keeps the background for an ablation.
-- **Capture groups** (`src/data.py: build_groups`): photos of the same fruit
+- **Capture groups** (`data.py: build_groups` in the notebook): photos of the same fruit
   taken seconds apart (consecutive EXIF timestamps of one camera, at most 10 s
   apart), near-identical images (DINOv2 cosine similarity ≥ 0.97), or
   re-encoded copies (perceptual hash within 2 bits and cosine ≥ 0.97) form one
@@ -153,8 +153,10 @@ feature `f`, on `f` with CL2N, on `f` centred per source dataset
 ## 4. Repository layout
 
 ```
-src/                library; copied unchanged into every Kaggle kernel
+notebooks/MangoFS_BD.ipynb   all library code and the pipeline as one Kaggle notebook;
+                             section 2 writes the modules to src/:
   prep_data.py        download the three datasets, harmonise labels, build the image cache
+  prep_seg.py         background-removed variant of the image cache (U²-Net)
   preprocess.py       padding trim, fruit crop, perceptual hash
   data.py             image cache, capture groups, folds and protocol splits, samplers, augmentation
   models.py           backbones, MLP and KAN heads, KAN metric
@@ -163,8 +165,8 @@ src/                library; copied unchanged into every Kaggle kernel
   evaluate.py         episodic evaluation, open set, metrics
   finetune.py         per-episode and closed-set fine-tuning
   efficiency.py       parameters, GMACs, latency
+  run.py              experiment suites; resumable driver (multi-GPU or TPU VM)
   export.py           package the benchmark as a zip archive
-  prep_seg.py         background-removed variant of the image cache (U²-Net)
 tools/
   build_groups.py     build capture groups from metadata and DINOv2 embeddings
   verify_benchmark.py independent checks of the benchmark
@@ -174,7 +176,6 @@ analysis/
   kan_curves.py       plot the learned KAN metric functions of a checkpoint
 benchmark/          meta.csv (every image) and groups.csv (capture groups)
 docs/grouping.md    how the capture-group rule and its thresholds were chosen
-notebooks/          MangoFS_BD.ipynb: the library and pipeline as one Kaggle notebook
 figures/            main result figures
 results/
   kaggle/<suite>/     raw results of each suite, one JSON line per trained model
@@ -188,8 +189,12 @@ tests/              unit tests
 All training ran on free Kaggle notebooks (2× T4 GPU). Locally you only need
 a CPU to run the tests and regenerate the tables:
 
+The library code lives in the notebook. To use it outside Jupyter (tests,
+tools), first write the modules to `src/`:
+
 ```bash
 python -m venv .venv && .venv/bin/pip install -r requirements.txt
+mkdir -p src && .venv/bin/python -c "import json; [open(c['source'][0].split()[1], 'w').write(''.join(c['source'][1:])) for c in json.load(open('notebooks/MangoFS_BD.ipynb'))['cells'] if c['source'] and c['source'][0].startswith('%%writefile')]"
 .venv/bin/python -m pytest -q tests/test_units.py      # unit tests
 .venv/bin/python analysis/aggregate.py                 # results/kaggle -> results/tables.md
 ```
