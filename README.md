@@ -165,7 +165,6 @@ src/                library; copied unchanged into every Kaggle kernel
   efficiency.py       parameters, GMACs, latency
   export.py           package the benchmark as a zip archive
   prep_seg.py         background-removed variant of the image cache (U²-Net)
-  run.py              experiment suites; resumable driver over 2 GPUs or a TPU VM
 tools/
   build_groups.py     build capture groups from metadata and DINOv2 embeddings
   verify_benchmark.py independent checks of the benchmark
